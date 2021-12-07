@@ -1,11 +1,11 @@
 import * as React from 'react';
-import PokeCard from './Card/Card';
+import PokeCardContainer from './Card/PokeCardContainer';
 
 const Content = () => {
     return (
         <div>
             <p>Content</p>
-            <PokeCard />
+            <PokeCardContainer />
         </div>
     )
 }
