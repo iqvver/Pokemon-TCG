@@ -1,0 +1,16 @@
+.logo {
+    float: left;
+    margin-left: 150px;
+    margin-top: 5px;
+}
+.logo img {
+    width: 300px;
+    
+}
+.header-text {
+    float: left;
+    width: 700px;
+}
+.header-text h1 {
+    color: ghostwhite;
+}

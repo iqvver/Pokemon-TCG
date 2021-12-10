@@ -1,0 +1,18 @@
+.content {
+    columns: 1 auto;
+}
+.containerGrid {
+    margin-top: 45px;
+}
+.cardMediaGrid {
+    width: 310px;
+    background-color:goldenrod;
+    
+}
+.cardMediaGrid img {
+  
+}
+.cardGrid {
+    padding: 5px;
+    margin-top: 10px;
+}
