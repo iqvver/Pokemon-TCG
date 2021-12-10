@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 5px;
   grid-template-areas:
   'h h h'
   'n c c' ;
@@ -17,9 +17,9 @@
 }
 
 .App-navBar {
-  background-color:dimgray;
+ 
   grid-area: n;
-  height: 700px;
+  height: auto;
   width: auto;
 }
 
@@ -27,6 +27,8 @@
   background-color:goldenrod;
   grid-area: c;
   width: auto;
+  padding-left: 5px;
+  border-radius: 5px;
 }
 
 .App-link {

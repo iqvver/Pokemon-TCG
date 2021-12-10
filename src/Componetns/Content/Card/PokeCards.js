@@ -17,7 +17,7 @@ let PokeCards = (props) => {
                         <Card>
                             <CardMedia className="cardMediaGrid" xs={4} xs={8}>
                                 <img src={p.images.small} />
-                                <CardContent>
+                                <CardContent className='cardContent'>
                                     <div>Имя:{p.name}</div>
                                     <div>Тип:{p.types}</div>
                                     <div>Хозяин:{p.artist}</div>

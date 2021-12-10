@@ -7,12 +7,16 @@
 .cardMediaGrid {
     width: 310px;
     background-color:goldenrod;
-    
 }
 .cardMediaGrid img {
+    padding: 10px;
+    margin-left: -20px;
   
 }
 .cardGrid {
     padding: 5px;
     margin-top: 10px;
+}
+.cardContent {
+    margin-top: -25px;
 }

@@ -10,7 +10,7 @@ const Header = () => {
             </div>
             <div className='header-text'>
                 <h1>
-                    Ultra Super Pokemon 5G
+                    Ultra Super Pokemon 5G Pro
                 </h1>
             </div>
         </div>
