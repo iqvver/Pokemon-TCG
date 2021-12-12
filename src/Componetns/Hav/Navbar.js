@@ -1,6 +1,4 @@
-import { Autocomplete, TextField } from '@mui/material';
-
-import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -23,7 +21,7 @@ let Navbar = (props) => {
 
     if (props.subtypepoke.length === 0) {
         axios.get("https://api.pokemontcg.io/v2/subtypes").then(subtype => {
-            props.setTypePoke(subtype.data.data)
+            props.setSubtype(subtype.data.data)
         });
     }
 
@@ -48,9 +46,14 @@ let Navbar = (props) => {
                         label="subType"
                         onChange={handleChange}
                     >
-                        {props.typepoke.map(s => <MenuItem value={s}>{s}</MenuItem>)}
+                        {props.subtypepoke.map(s => <MenuItem value={s}>{s}</MenuItem>)}
                     </Select>
                 </FormControl>
+            </div>
+            <div className='button-Block'>
+                <Button>
+                    Получить
+                </Button>
             </div>
         </div>
 

@@ -1,7 +1,8 @@
 .logo {
     float: left;
-    margin-left: 150px;
     margin-top: 5px;
+    position: fixed;
+    left: 0px;
 }
 
 .logo img {
@@ -9,7 +10,8 @@
 }
 
 .header-text {
-    float: left;
+    position: fixed;
+    left: 200px;
     width: 700px;
 }
 
@@ -25,11 +27,18 @@
     src: url(../../assets/font/WhiteChick.ttf)
 }
 .login-block {
-    background-color: yellowgreen;
     width: 200px;
     height: 80px;
-    float: right;
+    position: fixed;
+    right: 0px;
+    margin-top: 10px;
 }
 .login-block a {
     text-decoration: none;
+}
+.back {
+    background-color: #282c34;
+    width: auto;
+    height: 800px;
+    position: fixed;
 }

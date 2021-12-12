@@ -6,6 +6,9 @@ import './Header.css';
 const Header = () => {
     return (
         <div>
+            <div className='back'>
+
+            
             <div className='logo'>
                 <img src={pokelogo} />
             </div>
@@ -16,6 +19,7 @@ const Header = () => {
             </div>
             <div className='login-block'>
                 <HeaderLogin />
+            </div>
             </div>
         </div>
     )

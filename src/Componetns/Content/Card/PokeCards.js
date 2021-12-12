@@ -5,12 +5,36 @@ import { Card, CardContent, CardMedia, Container, Grid } from '@mui/material';
 
 let PokeCards = (props) => {
     if (props.pokemons.length === 0) {
-        axios.get("https://api.pokemontcg.io/v2/cards").then(card => {
-            props.setPokemons(card.data.data)
+        axios.get(`https://api.pokemontcg.io/v2/cards?page=${props.currentPage}&count=${props.pageSize}`).then(card => {
+            props.setPokemons(card.data.data);
+            debugger;
+            props.setPokemonsTotalCount(card.data.totalCount);
         });
     }
+let onPageChanged = (pageNumber) => {
+    props.setCurrentPage(pageNumber);
+    axios.get(`https://api.pokemontcg.io/v2/cards?page=${pageNumber}&count=${props.pageSize}`).then(card => {
+            props.setPokemons(card.data.data)
+        });
+}
 
-    return <Container className="containerGrid" maxWidth='md'>
+    let pagesCount = Math.ceil(props.totalCount / props.pageSize);
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+    }
+    
+    return <div>
+        
+        
+        
+        <Container className="containerGrid" maxWidth='md'>
+        <div className='pagination-Block'>
+            {pages.map(pag => {
+               return <span className={props.currentPage === pag && 'selected-Page'}
+               onClick={(e) => {onPageChanged(pag)}}>{pag}</span>
+            })}
+        </div>
             <Grid container spacing={4}>
                 {
                     props.pokemons.map(p => <Grid className="cardGrid" xs={12} sm={6} md={4} key={p.id}>
@@ -28,6 +52,7 @@ let PokeCards = (props) => {
                 }
             </Grid>
         </Container>
+    </div>
 }
 
 export default PokeCards;
