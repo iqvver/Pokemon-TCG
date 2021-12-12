@@ -28,7 +28,6 @@ let PokeCards = (props) => {
                 }
             </Grid>
         </Container>
-    
 }
 
 export default PokeCards;

@@ -24,7 +24,7 @@
 }
 
 .App-content {
-  background-color:goldenrod;
+  background-color: slategrey;
   grid-area: c;
   width: auto;
   padding-left: 5px;
@@ -33,4 +33,11 @@
 
 .App-link {
   color: #61dafb;
+}
+.login-Block {
+  height: 250px;
+  width: 400px;
+}
+.email {
+  color-scheme: normal ;
 }

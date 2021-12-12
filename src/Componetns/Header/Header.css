@@ -24,3 +24,12 @@
     font-family: Pompadur;
     src: url(../../assets/font/WhiteChick.ttf)
 }
+.login-block {
+    background-color: yellowgreen;
+    width: 200px;
+    height: 80px;
+    float: right;
+}
+.login-block a {
+    text-decoration: none;
+}
