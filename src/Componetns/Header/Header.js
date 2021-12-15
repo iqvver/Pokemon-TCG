@@ -7,19 +7,17 @@ const Header = () => {
     return (
         <div>
             <div className='back'>
-
-            
-            <div className='logo'>
-                <img src={pokelogo} />
-            </div>
-            <div className='header-text'>
-                <h1>
-                    Ultra Super Pokemon 5G Pro
-                </h1>
-            </div>
-            <div className='login-block'>
-                <HeaderLogin />
-            </div>
+                <div className='logo'>
+                    <img src={pokelogo} />
+                </div>
+                <div className='header-text'>
+                    <h1>
+                        Ultra Super Pokemon 5G Pro
+                    </h1>
+                </div>
+                <div className='login-block'>
+                    <HeaderLogin />
+                </div>
             </div>
         </div>
     )

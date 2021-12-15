@@ -25,6 +25,7 @@ const pokecardReducer = (state = initialState, action) => {
         case SET_TOTAL_POKEMONS_COUNT: {
             return { ...state, totalCount: action.count }
         }
+
         
         default:
             return state;

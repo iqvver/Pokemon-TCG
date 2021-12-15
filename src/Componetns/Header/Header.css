@@ -1,7 +1,7 @@
 .logo {
     float: left;
     margin-top: 5px;
-    position: fixed;
+    position: absolute;
     left: 0px;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .header-text {
-    position: fixed;
+    position: absolute;
     left: 200px;
     width: 700px;
 }
@@ -29,7 +29,7 @@
 .login-block {
     width: 200px;
     height: 80px;
-    position: fixed;
+    position: absolute;
     right: 0px;
     margin-top: 10px;
 }
@@ -39,6 +39,5 @@
 .back {
     background-color: #282c34;
     width: auto;
-    height: 800px;
-    position: fixed;
+    height: 80px;
 }

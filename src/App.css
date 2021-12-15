@@ -17,10 +17,10 @@
 }
 
 .App-navBar {
- 
+  margin-left: -330px;
   grid-area: n;
   height: auto;
-  width: auto;
+  width: 300px;
 }
 
 .App-content {
@@ -29,6 +29,7 @@
   width: auto;
   padding-left: 5px;
   border-radius: 5px;
+  
 }
 
 .App-link {
