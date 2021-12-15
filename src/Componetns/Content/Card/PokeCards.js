@@ -7,7 +7,6 @@ let PokeCards = (props) => {
     if (props.pokemons.length === 0) {
         axios.get(`https://api.pokemontcg.io/v2/cards?page=${props.currentPage}&count=${props.pageSize}`).then(card => {
             props.setPokemons(card.data.data);
-            debugger;
             props.setPokemonsTotalCount(card.data.totalCount);
         });
     }
