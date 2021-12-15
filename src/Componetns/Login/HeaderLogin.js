@@ -2,25 +2,27 @@ import *as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FormControlLabel, Switch, } from '@material-ui/core';
 
-let HeaderLogin = () => {
+let HeaderLogin = (props) => {
 
-    const [auth, setAuth] = React.useState(true);
+    const [isAuth, setAuth] = React.useState(true);
     const handleChange = (event) => {
+        debugger;
         setAuth(event.target.checked);
     };
+    
 
     return (
         <div>
-            {auth === true ?
+            {props.isAuth === true ?
                 <FormControlLabel
                     control={
                         <Switch
-                            checked={auth}
+                            checked={isAuth}
                             onChange={handleChange}
                             aria-label="login switch"
                         />
                     }
-                    label={auth ? 'Login' : 'Logout'}
+                    label={props.isAuth ? 'Login' : 'Logout'}
                 /> :
                 <FormControlLabel disabled
                     control={
@@ -29,6 +31,5 @@ let HeaderLogin = () => {
         </div>
     )
 }
-
 
 export default HeaderLogin;

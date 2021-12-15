@@ -1,16 +1,13 @@
 const SET_POKEMONS_PROFILE = 'SET_POKEMONS_PROFILE';
 
-
 let initialState = {
     pokemonsProfile: null
 };
-
 const cardReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_POKEMONS_PROFILE: {
             return { ...state, pokemonsProfile: action.pokemonsProfile }
         }
-
         default:
             return state;
     }

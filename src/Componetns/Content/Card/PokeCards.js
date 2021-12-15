@@ -1,5 +1,5 @@
-import React from 'react'
-import * as axios from "axios"
+import *as React from 'react'
+import *as axios from "axios"
 import '../Content.css';
 import '../../../App.css';
 import { Card, CardContent, CardMedia, Container, Grid } from '@mui/material';
@@ -43,7 +43,7 @@ let PokeCards = (props) => {
                     props.pokemons.map(p => <Grid className="cardGrid" xs={12} sm={6} md={4} key={p.id}>
                         <Card>
                             <CardMedia className="cardMediaGrid" xs={4} xs={8}>
-                            <NavLink to={'/card'}>  <img src={p.images.small} className='pokeCard' /> </NavLink>
+                            <NavLink to={'/cards/' + p.id}>  <img src={p.images.small} className='pokeCard' /> </NavLink>
                                 <CardContent className='cardContent'>
                                     <div>Имя:{p.name}</div>
                                     <div>Тип:{p.types}</div>

@@ -1,22 +1,25 @@
 import * as React from 'react';
 import pokelogo from '../../assets/images/pokelogo.png'
 import HeaderLogin from '../Login/HeaderLogin';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
+const Header = (props) => {
     return (
         <div>
             <div className='back'>
                 <div className='logo'>
-                    <img src={pokelogo} />
+                    <NavLink to={'/'}><img src={pokelogo} /></NavLink>
                 </div>
                 <div className='header-text'>
-                    <h1>
-                        Ultra Super Pokemon 5G Pro
-                    </h1>
+                    <NavLink to={'/'}>
+                        <h1>
+                            Ultra Super Pokemon 5G Pro
+                        </h1>
+                    </NavLink>
                 </div>
                 <div className='login-block'>
-                    <HeaderLogin />
+                    <HeaderLogin isAuth={props.isAuth} />
                 </div>
             </div>
         </div>

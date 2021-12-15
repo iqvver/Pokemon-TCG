@@ -26,7 +26,6 @@ const pokecardReducer = (state = initialState, action) => {
             return { ...state, totalCount: action.count }
         }
 
-        
         default:
             return state;
     }
@@ -34,6 +33,6 @@ const pokecardReducer = (state = initialState, action) => {
 
 export const setPokemonsAC = (pokemons) => ({ type: SET_POKE, pokemons });
 export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
-export const setPokemonsTotalCountAC = (totalCount) => ({type: SET_TOTAL_POKEMONS_COUNT, count: totalCount })
+export const setPokemonsTotalCountAC = (totalCount) => ({ type: SET_TOTAL_POKEMONS_COUNT, count: totalCount })
 
 export default pokecardReducer;
