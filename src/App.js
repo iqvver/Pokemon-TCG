@@ -17,10 +17,10 @@ function App() {
       </div>
       <div className='App-content'>
         <div>
-          <Redirect from='/KODE_test/' to='/' />
-            <Route exact path='/' component={PokeCardContainer} />
-            <Route path='/login' component={LoginContainer} />
-            <Route path='/cards/:pokeId?' render={() => <CardContainer />} />
+          <Redirect from="/" to="/home" />
+          <Route path='/home' render={() => <PokeCardContainer />} />
+          <Route path='/login' render={() => <LoginContainer />} />
+          <Route path='/cards/:pokeId?' render={() => <CardContainer />} />
         </div>
       </div>
     </div>

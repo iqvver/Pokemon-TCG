@@ -21,7 +21,6 @@ let mapDispatchToProps = (dispatch) => {
 const Header = (props) => {
     const [isAuth, setAuth] = React.useState(true);
     const handleChange = (event) => {
-        debugger;
         props.setIsAuth(false);
         setAuth(event.target.checked);
     };
@@ -29,10 +28,10 @@ const Header = (props) => {
         <div>
             <div className='back'>
                 <div className='logo'>
-                    <NavLink to={'/'}><img src={pokelogo} /></NavLink>
+                    <NavLink to={'/home'}><img src={pokelogo} /></NavLink>
                 </div>
                 <div className='header-text'>
-                    <NavLink to={'/'}>
+                    <NavLink to={'/home'}>
                         <h1>
                             Ultra Super Pokemon 5G Pro
                         </h1>

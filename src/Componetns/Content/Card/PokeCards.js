@@ -35,6 +35,7 @@ let PokeCards = (props) => {
                                 type="button"
                                 style={{
                                     fontWeight: selected ? 'bold' : undefined,
+                                    color: selected ? '#000' : undefined,
                                 }}
                                 {...item}
                             >

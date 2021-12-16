@@ -7,7 +7,7 @@ import { Redirect } from 'react-router'
 
 const Login = (props) => {
     if (props.isAuth) {
-        return <Redirect to={"/"} />
+        return <Redirect to={'/home'} />
     }
     return (
         <div className='login-Block'>
