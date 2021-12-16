@@ -1,3 +1,6 @@
+To display correctly: Click on the "Pokemon" or "Ultra Super Pokemon 5G Pro" logo
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
