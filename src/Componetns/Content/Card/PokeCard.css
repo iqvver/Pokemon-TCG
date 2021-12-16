@@ -1,4 +1,33 @@
 .pokeCard-Block {
-    margin-top: 20px;
-    columns: 2;
+    margin-top: 10px;
+}
+.infoBlock {
+    margin-top: -15px;
+}
+.general {
+    border-radius: 5px;
+    box-shadow: 0 0 5px  black;
+    height: 150px;
+    
+}
+.informations {
+    box-shadow: 0 0 5px  black;
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 150px;
+    
+}
+.attacks {
+    box-shadow: 0 0 5px  black;
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 150px;
+    
+}
+.foot {
+    box-shadow: 0 0 5px  black;
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 150px;
+    
 }

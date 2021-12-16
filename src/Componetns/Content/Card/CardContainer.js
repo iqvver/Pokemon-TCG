@@ -9,7 +9,6 @@ import { withRouter } from 'react-router-dom';
 class CardContainer extends React.Component {
     componentDidMount() {
         let pokeId = this.props.match.params.pokeId;
-        debugger;
         axios.get(`https://api.pokemontcg.io/v2/cards/` + pokeId)
             .then(response => {
                 this.props.setPokemonsProfile(response.data);

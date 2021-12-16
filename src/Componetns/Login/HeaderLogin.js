@@ -6,7 +6,6 @@ let HeaderLogin = (props) => {
 
     const [isAuth, setAuth] = React.useState(true);
     const handleChange = (event) => {
-        debugger;
         setAuth(event.target.checked);
     };
     

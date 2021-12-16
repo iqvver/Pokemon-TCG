@@ -6,6 +6,7 @@ import Select from '@mui/material/Select';
 import *as React from 'react';
 import * as axios from "axios"
 import './Navbar.css';
+import { NavLink } from 'react-router-dom';
 
 let Navbar = (props) => {
     const [age, setAge] = React.useState('');
@@ -15,18 +16,16 @@ let Navbar = (props) => {
 
     if (props.typepoke.length === 0) {
         axios.get("https://api.pokemontcg.io/v2/types").then(type => {
-            debugger;
             props.setTypePoke(type.data.data)
         });
     }
 
     if (props.subtypepoke.length === 0) {
         axios.get("https://api.pokemontcg.io/v2/subtypes").then(subtype => {
-            debugger;
             props.setSubtype(subtype.data.data)
         });
     }
-    
+
     return <div>
         <div className='comboFilter'>
             <div className='type-Block' sx={{ minWidth: 120 }}>
@@ -34,8 +33,7 @@ let Navbar = (props) => {
                     <InputLabel>Type</InputLabel>
                     <Select
                         label="Type"
-                        onChange={handleChange}
-                    >
+                        onChange={handleChange} >
                         {props.typepoke.map(t => <MenuItem value={t}>{t}</MenuItem>)}
                     </Select>
                 </FormControl>
@@ -46,8 +44,7 @@ let Navbar = (props) => {
                     <InputLabel>Subtype</InputLabel>
                     <Select
                         label="subType"
-                        onChange={handleChange}
-                    >
+                        onChange={handleChange} >
                         {props.subtypepoke.map(s => <MenuItem value={s}>{s}</MenuItem>)}
                     </Select>
                 </FormControl>
@@ -58,8 +55,6 @@ let Navbar = (props) => {
                 </Button>
             </div>
             <div>
-                gg^
-                
             </div>
         </div>
 

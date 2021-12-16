@@ -2,28 +2,41 @@
     columns: 1 auto;
 }
 .containerGrid {
-    margin-top: 45px;
+    margin-top: 0px;
 }
 .cardMediaGrid {
-    width: 310px;
-    background-color: #282c34;
+    overflow:hidden;
+    width: 300px;
+    height:450px;
+    
 }
 .cardMediaGrid img {
-    padding: 10px;
-    margin-left: -20px;
-  
+    padding: 20px;
+    margin-left: -16px;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
 }
+.cardMediaGrid img:hover{
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    }
 .cardGrid {
     padding: 5px;
     margin-top: 50px;
 }
 .cardContent {
-    margin-top: -25px;
-    color:ghostwhite;
+    margin-top: -20px;
 }
 .pagination-Block {
-    margin-top: -230px;
+    margin-top: -200px;
 }
 .selected-Page {
     font-weight: bold;
+}
+.preloader {
+    background-color: blue;
+    width: 200px;
+    height: 300px;
 }
