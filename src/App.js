@@ -1,5 +1,6 @@
 import './App.css';
 import * as React from 'react';
+import { Redirect } from 'react-router'
 import { Route } from 'react-router-dom';
 import PokeCardContainer from './Componetns/Content/Card/PokeCardContainer';
 import CardContainer from './Componetns/Content/Card/CardContainer';
@@ -16,9 +17,10 @@ function App() {
       </div>
       <div className='App-content'>
         <div>
-          <Route exact path='/' component={PokeCardContainer} />
-          <Route exact path='/login' component={LoginContainer} />
-          <Route path='/cards/:pokeId?' render={() => <CardContainer />} />
+          <Redirect from='/KODE_test/' to='/' />
+            <Route exact path='/' component={PokeCardContainer} />
+            <Route path='/login' component={LoginContainer} />
+            <Route path='/cards/:pokeId?' render={() => <CardContainer />} />
         </div>
       </div>
     </div>
