@@ -6,7 +6,6 @@ import Select from '@mui/material/Select';
 import *as React from 'react';
 import * as axios from "axios"
 import './Navbar.css';
-import { NavLink } from 'react-router-dom';
 
 let Navbar = (props) => {
     const [age, setAge] = React.useState('');
@@ -38,7 +37,6 @@ let Navbar = (props) => {
                     </Select>
                 </FormControl>
             </div>
-
             <div className='subtype-Block' sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
                     <InputLabel>Subtype</InputLabel>
@@ -57,7 +55,6 @@ let Navbar = (props) => {
             <div>
             </div>
         </div>
-
     </div>
 }
 export default Navbar;

@@ -8,7 +8,7 @@ let reducers = combineReducers({
     pokemonCardPage: pokecardReducer,
     navbarPage: navbarReducer,
     pokemonsProfilePage: cardReducer,
-    auth: authReducer,
+    isAuth: authReducer,
 });
 
 let store = createStore(reducers);

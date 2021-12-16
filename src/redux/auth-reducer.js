@@ -1,19 +1,18 @@
-const SET_USER = 'SET_USER';
+const IS_AUTH = 'IS_AUTH';
 
 let initialState = {
-    
-    isAuth: false,
+    isAuth: true,
 };
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_USER: {
-            return { ...state, isAuth: true }
+        case IS_AUTH: {
+            return { ...state, isAuth: action.isAuth }
         }
         default:
             return state;
     }
 }
 
-export const initializedSuccess = () => ({type: SET_USER});
+export const setIsAuthAC = (isAuth) => ({type: IS_AUTH, isAuth})
 
 export default authReducer;

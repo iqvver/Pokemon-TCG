@@ -1,10 +1,30 @@
 import * as React from 'react';
 import pokelogo from '../../assets/images/pokelogo.png'
-import HeaderLogin from '../Login/HeaderLogin';
 import { NavLink } from 'react-router-dom';
+import { setIsAuthAC } from '../../redux/auth-reducer';
 import './Header.css';
+import { connect } from "react-redux";
+import HeaderLogin from '../Login/HeaderLogin';
 
+let mapStateToProps = (state) => {
+    return {
+        isAuth: state.isAuth.isAuth,
+    }
+}
+let mapDispatchToProps = (dispatch) => {
+    return {
+        setIsAuth: (isAuth) => {
+            dispatch(setIsAuthAC(isAuth));
+        }
+    }
+}
 const Header = (props) => {
+    const [isAuth, setAuth] = React.useState(true);
+    const handleChange = (event) => {
+        debugger;
+        props.setIsAuth(false);
+        setAuth(event.target.checked);
+    };
     return (
         <div>
             <div className='back'>
@@ -19,10 +39,11 @@ const Header = (props) => {
                     </NavLink>
                 </div>
                 <div className='login-block'>
-                    <HeaderLogin isAuth={props.isAuth} />
+                    <HeaderLogin isAuth={props.isAuth}
+                        setIsAuth={props.setIsAuth} />
                 </div>
             </div>
         </div>
     )
 }
-export default Header;
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

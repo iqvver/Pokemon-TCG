@@ -16,7 +16,7 @@
 .App-header {
   background-color: #282c34;
   grid-area: h;
-  
+
 }
 
 .App-navBar {
@@ -44,4 +44,10 @@
 }
 .email {
   color-scheme: normal ;
+}
+.switchBlock {
+  position: absolute;
+  z-index: 9999px;
+  margin-top: -330px;
+  margin-left: 800px;
 }

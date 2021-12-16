@@ -5,17 +5,22 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Divider } from '@material-ui/core';
+import LinearProgress from '@mui/material/LinearProgress';
+import Button from '@mui/material/Button';
 
 const PokeCard = (props) => {
-
     if (!props.pokemonsProfile) {
-        return <di> gg! </di>
+        return <LinearProgress />
     }
     return (
         <div className='pokeCard-Block'>
             <Card sx={{ display: 'flex' }}>
+                <div className='buttonBack'>
+                    <Button variant="text" onClick={() => props.history.goBack()}>Back</Button>
+                </div>
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <CardContent sx={{ flex: '' }}>
+
                         <div className='infoBlock'>
                             <div><h2>{props.pokemonsProfile.data.name}</h2></div>
                             <div className='general'>
@@ -34,7 +39,7 @@ const PokeCard = (props) => {
                                 <div>{props.pokemonsProfile.data.subtypes}  {props.pokemonsProfile.data.supertype}</div>
                             </div>
                             <div className='attacks'>
-                            <h4>Vullaby's Attacks</h4>
+                                <h4>Vullaby's Attacks</h4>
                                 <Divider />
                                 <div>{props.pokemonsProfile.data.attacks[0].name}</div>
                                 <div>{props.pokemonsProfile.data.attacks[0].text}</div>
@@ -42,7 +47,7 @@ const PokeCard = (props) => {
                                     {props.pokemonsProfile.data.attacks.damage}</div>
                             </div>
                             <div className='foot'>
-                            <h4>Other Informations</h4>
+                                <h4>Other Informations</h4>
                                 <Divider />
                                 {props.pokemonsProfile.data.weaknesses[0].type}
                                 {props.pokemonsProfile.data.weaknesses[0].value} <br />
@@ -53,18 +58,14 @@ const PokeCard = (props) => {
                 </Box>
                 <CardMedia
                     component="img"
-                    sx={{ width: 500,
-                    height: 700 }}
+                    sx={{
+                        width: 500,
+                        height: 700
+                    }}
                     image={props.pokemonsProfile.data.images.large}
                     alt="Live from space album cover"
                 />
             </Card>
-
-
-
-
-
-
         </div >
     )
 }

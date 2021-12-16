@@ -17,7 +17,7 @@ let PokeCards = (props) => {
     const { items } = usePagination({
         count: pagesCount,
     });
-    if (!props.totalCount ) {
+    if (!props.totalCount) {
         <div className='preloader'> gg! </div>
     } return (
         <div>
@@ -52,8 +52,6 @@ let PokeCards = (props) => {
                 })}
             </div>
 
-
-
             <Container className="containerGrid" maxWidth='md'>
                 <Grid container spacing={4}>
                     {props.pokemons.map(p => <Grid className="cardGrid" xs={12} sm={6} md={4} key={p.id}>
@@ -68,7 +66,6 @@ let PokeCards = (props) => {
                                     </Typography>
                                 </CardContent>
                             </CardMedia>
-
                         </Card>
                     </Grid>)
                     }

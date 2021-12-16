@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { setPokemonsProfile } from '../../../redux/card-reducer'
 import { withRouter } from 'react-router-dom';
 
-
 class CardContainer extends React.Component {
     componentDidMount() {
         let pokeId = this.props.match.params.pokeId;
