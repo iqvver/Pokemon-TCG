@@ -1,93 +1,24 @@
-# Getting Started with Create React App
+# Ultra Super Pokemon 5G Pro
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Front End Installation Guide
 
-In the project directory, you can run:
-
-### `npm start`
+The Ultra Super Pokemon 5G Pro is easy to use and run. Just open up the client in your favorite web browser and sign in to a unique account to create your own decks. If you want to run locally, fork and clone this repo and through your terminal run npm install and then npm start to run a local host version.
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### `Technologies Used`
+- JavaScript
+- React
+- CSS/SCSS
+- materialUi
+- Node
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Problem Solving`
+Though the process was largely smooth, it was not without it's issues. Whenever the app behaved in error (which happened plenty in develpoment) I would stop progress and try to debug from the root, starting from component mounting and following the life cylce events on the front end or from model to routes on the back end. Reading terminal errors and console error messages typically got me to the root of the problem easily. If that was not enough, Google and Stack Overflow typically yielding good results for strange errors. If all else failed, I had a few senior team members to take questions to, where I could voice my concerns and receive guidance to lead me to a solution. All in all, the parts that went poorly were just as helpful to learning as the parts that went well.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-Задачи:
-1. Реализация страниц приложения и перехода между ними (Route).
-    1. "Главная страница" ('/'). 
-        1. Расположены все карточки пришедшие из API.
-        2. Расположены types и subtypes каточек. types и subtypes приходят из API.
-    2. Страница выбранной карточки ('/card'). Сдесь расположена додробная информация о выбранной карточке.
-    3. Страница входа в приложение ('/login'). Авторизация в приложении при помощи ввода логина и пароля.
-Время выполнения примерно 20ч.
-2. Дизайн и наполнение страниц приложения.
-Время выполнения примерно 25ч.
-3. Задания со звездочкой*
-    -Пагинация карточек
-    -Анимация кнопок, карточек при наведении
-    -Адаптивный дизайн
-Время выполнения примерно 5ч.
- Во время выполнения задания возникли проблемы с переходами между страницами (Route),
-  из-за конфликта версий 'react-router-dom'
-А так же при работе с API не было понятно как авторизоваться.
 --------------------------------------------------------------
 Tasks:
 1. Implementation of the application pages and the transition between them (Route).
