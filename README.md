@@ -22,7 +22,7 @@ Though the process was largely smooth, it was not without it's issues. Whenever 
 --------------------------------------------------------------
 Tasks:
 1. Implementation of the application pages and the transition between them (Route).
- 1. "Home page" ('/'). 
+ 1. "Home page" ('/home'). 
  1. All the cards that came from the API are located.
  2. There are types and subtypes of the cathodes. types and subtypes come from the API.
  2. The page of the selected card ('/card'). Detailed information about the selected card is located here.
