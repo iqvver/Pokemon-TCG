@@ -25,31 +25,24 @@ let PokeCards = (props) => {
                 <NavbarContainer />
             </div>
             <div className='pagination-Block'>
-                {items.map(({ page, type, selected, ...item }, index) => {
-                    let children = null;
-                    if (type === 'start-ellipsis' || type === 'end-ellipsis') {
-                        children = '…';
-                    } else if (type === 'page') {
-                        children = (
-                            <div
-                                type="button"
-                                style={{
-                                    fontWeight: selected ? 'bold' : undefined,
-                                    color: selected ? '#000' : undefined,
-                                }}
-                                {...item}
-                            >
-                                {page}
-                            </div>
-                        );
-                    } else {
-                        children = (
-                            <div type="button" {...item}>
-                                {type}
-                            </div>
-                        );
-                    }
-                    return <Button variant="contained" key={index} onClick={(e) => { props.onPageChanged(page); }}>{children}</Button>;
+            {items.map(({ page, type, selected, ...item }, index) => {
+          let children = null;
+          if (type === 'start-ellipsis' || type === 'end-ellipsis') { children = ( <Button disabled variant="contained"> ... </Button>); }
+          else if (type === 'page') {
+            children = (
+              <Button variant="contained"
+                style={{ fontWeight: selected ? 'bold' : undefined,
+                color: selected ? '#000' : undefined, }}
+                {...item}>
+                {page}
+              </Button>
+            );
+          } else {
+            children = (
+              <Button variant="contained"  {...item}>{type}</Button>
+            );
+          }
+                    return <span key={index} onClick={(e) => { props.onPageChanged(page); }}>{children}</span>;
                 })}
             </div>
 

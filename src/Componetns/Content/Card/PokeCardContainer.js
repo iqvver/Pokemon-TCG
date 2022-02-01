@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { setPokemonsAC, setCurrentPageAC, setPokemonsTotalCountAC, setIsFetchingAC } from '../../../redux/pokecard-reducer';
 import PokeCards from './PokeCards';
 import *as axios from 'axios';
+import { Redirect } from 'react-router'
 import '../Content.css';
 import LinearProgress from '@mui/material/LinearProgress';
 
@@ -13,6 +14,7 @@ let mapStateToProps = (state) => {
         totalCount: state.pokemonCardPage.totalCount,
         currentPage: state.pokemonCardPage.currentPage,
         isFetching: state.pokemonCardPage.isFetching,
+        isAuth: state.isAuth.isAuth
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -30,10 +32,12 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(setIsFetchingAC(isFetching))
         },
     }
-
 }
 
 const pokeCardContainer = (props) => {
+    if ((localStorage.getItem('isAuth') == 'false') || (localStorage.getItem('isAuth') == '{"isAuth":""}')) {
+        return <Redirect to={'/login'} />
+    }
     if (props.pokemons.length === 0) {
         props.setIsFetching(true);
         axios.get(`https://api.pokemontcg.io/v2/cards?page=${props.currentPage}&count=${props.pageSize}`).then(card => {
@@ -50,20 +54,20 @@ const pokeCardContainer = (props) => {
             props.setPokemons(card.data.data)
         });
     }
-     return ( <> 
+
+    return (<>
         {props.isFetching ? <LinearProgress /> : null}
-            <PokeCards
-                totalCount={props.totalCount}
-                pageSize={props.pageSize}
-                currentPage={props.currentPage}
-                onPageChanged={onPageChanged}
-                pokemons={props.pokemons}
-                setPokemons={props.setPokemons}
-                setPokemonsTotalCount={props.setPokemonsTotalCount}
-                setCurrentPage={props.setCurrentPage}
-                isFetching={props.isFetching} />
-        </>
-    
+        <PokeCards
+            totalCount={props.totalCount}
+            pageSize={props.pageSize}
+            currentPage={props.currentPage}
+            onPageChanged={onPageChanged}
+            pokemons={props.pokemons}
+            setPokemons={props.setPokemons}
+            setPokemonsTotalCount={props.setPokemonsTotalCount}
+            setCurrentPage={props.setCurrentPage}
+            isFetching={props.isFetching} />
+    </>
     )
 }
 

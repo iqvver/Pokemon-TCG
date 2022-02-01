@@ -17,7 +17,7 @@ function App() {
       </div>
       <div className='App-content'>
         <div>
-          <Redirect from="/" to="/home" />
+          <Redirect from="/" to="/login" />
           <Route path='/home' render={() => <PokeCardContainer />} />
           <Route path='/login' render={() => <LoginContainer />} />
           <Route path='/cards/:pokeId?' render={() => <CardContainer />} />

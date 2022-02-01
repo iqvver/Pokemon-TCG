@@ -19,11 +19,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 const Header = (props) => {
-    const [isAuth, setAuth] = React.useState(true);
-    const handleChange = (event) => {
-        props.setIsAuth(false);
-        setAuth(event.target.checked);
-    };
     return (
         <div>
             <div className='back'>

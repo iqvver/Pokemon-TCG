@@ -1,7 +1,7 @@
 const IS_AUTH = 'IS_AUTH';
 
 let initialState = {
-    isAuth: true,
+    isAuth: '',
 };
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
