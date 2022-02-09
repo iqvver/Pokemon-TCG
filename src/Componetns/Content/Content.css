@@ -1,18 +1,12 @@
-.content {
-    columns: 1 auto;
-}
-.containerGrid {
-    margin-top: 0px;
-}
 .cardMediaGrid {
     overflow:hidden;
-    width: 300px;
+    width: 280px;
     height:450px;
-    
+}
+.containerGrid {
 }
 .cardMediaGrid img {
     padding: 20px;
-    margin-left: -16px;
     -moz-transition: all 1s ease-out;
     -o-transition: all 1s ease-out;
     -webkit-transition: all 1s ease-out;
@@ -23,14 +17,13 @@
     -o-transform: scale(1.1);
     }
 .cardGrid {
-    padding: 5px;
     margin-top: 50px;
 }
 .cardContent {
     margin-top: -20px;
 }
 .pagination-Block {
-    margin-top: -180px;
+    margin-top: 10px;
 }
 .selected-Page {
     font-weight: bold;

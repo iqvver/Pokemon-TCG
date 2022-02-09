@@ -6,6 +6,7 @@ import Login from './Login';
 let mapStateToProps = (state) => {
     return {
         isAuth: state.isAuth.isAuth,
+        isReg: state.isAuth.loginAndPassword
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -20,7 +21,8 @@ const LoginContainer = (props) => {
         <div>
             <Login
                 isAuth={props.isAuth}
-                setIsAuth={props.setIsAuth} />
+                setIsAuth={props.setIsAuth}
+                isReg={props.isReg} />
         </div>
     </div>
     )

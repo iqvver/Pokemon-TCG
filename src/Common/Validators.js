@@ -15,16 +15,3 @@ export const emailValidate = value => {
     else if (value) return undefined;
     return 'Поле пусто'
 }
-
-
-export const emailkode = values => {
-    if (!values) {
-       return 'The email field is empty!'
-    } else if (values != 'kode@kode.ru') {
-        return 'Invalid email address! Enter: kode@kode.ru000'
-    }
-    if (!values) {
-        return 'The password field is empty!'
-    } else if (values != 'Enk0deng') {
-        return 'The password is not correct! Enter: Enk0deng'
-    } }

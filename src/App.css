@@ -1,39 +1,11 @@
 .App {
   text-align: center;
   display: grid;
-  grid-gap: 5px;
-  grid-template-areas:
-  'h h h'
-  'n c c' ;
-  grid-template-rows: 80px 1fr;
-  grid-template-columns: 3fr 10fr;
-  width: auto;
-  height: auto;
   background-color: rgb(217, 217, 250);
-  
 }
-
 .App-header {
   background-color: #282c34;
-  grid-area: h;
-
 }
-
-.App-navBar {
-  margin-left: -330px;
-  grid-area: n;
-  height: auto;
-  width: 300px;
-}
-
-.App-content {
-  grid-area: c;
-  width: auto;
-  padding-left: 5px;
-  border-radius: 5px;
-  
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -41,17 +13,4 @@
   height: 250px;
   width: 400px;
   margin-top: 20px;
-}
-.email {
-  color-scheme: normal ;
-}
-.switchBlock {
-  position: absolute;
-  z-index: 9999px;
-  margin-top: -330px;
-  margin-left: 800px;
-}
-.loginForm {
- height: 400px;
- margin-right: 350px;
 }

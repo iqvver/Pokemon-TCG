@@ -1,16 +1,16 @@
 import * as React from 'react';
-import '../../App.css';
+import './Login.css';
 import Button from '@mui/material/Button'
 import { Redirect } from 'react-router'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { required, emailValidate, emailkode } from '../../Common/Validators'
+import OTP from '../../Common/OTP';
 
 const style = {
     position: 'absolute',
-    top: '50%',
+    top: '30%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
@@ -24,69 +24,76 @@ const Login = (props) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    if (localStorage.getItem('isAuth') == 'true') {  
+    if (localStorage.getItem('isAuth') == 'true') {
         return <Redirect to={'/home'} />
     }
     let handleClick = () => {
         localStorage.isAuth = true;
         props.setIsAuth(true);
     }
+    const myLog = [...props.isReg].map(l =>
+        <div>
+            name:{l.username} <br />
+            login:{l.login} <br />
+            password:{l.password}
+        </div>);
+
     return (
         <div className='loginForm'>
             <Modal
                 open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description">
+                onClose={handleClose}>
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Do you really want to login?
+                    <Typography variant="h6" align='center'>
+                        Введите код для того, что-бы войти?
                     </Typography>
-                    <Button onClick={handleClick}>LogIn</Button>
-                    <Button onClick={handleClose}>Cansel</Button>
+                    <OTP handleClick={handleClick}
+                        onClose={handleClose} />
                 </Box>
             </Modal>
-
-            <h1>Welcome!</h1>
-            <h2>Please enter your email and password!</h2>
-
-            <Formik
-                initialValues={{ email: '', password: '' }}
-                validate={values => {
-                    const errors = {};
-                    if (!values.email) {
-                        errors.email = 'The email field is empty!';
-                    } else if (values.email !== 'kode@kode.ru'
-                    ) {
-                        errors.email = 'Invalid email address! Enter: kode@kode.ru';
-                    }
-                    if (!values.password) {
-                        errors.password = 'The password field is empty!!';
-                    } else if (values.password !== 'Enk0deng') {
-                        errors.password = 'The password is not correct! Enter: Enk0deng';
-                    } return errors;
-                }}
-            >
-                {({ values }) => (
-                    <Form>
-                        <Field
-                            type="email"
-                            name="email"
-                        />
-                        <ErrorMessage name="email" component="div" />
-                        <br />
-                        <Field
-                            type="password"
-                            name="password" />
-                        <ErrorMessage name="password" component="div" />
-                        <br />
-                        {values.email == 'kode@kode.ru' && values.password == 'Enk0deng'
-                            ? <Button onClick={handleOpen}>LogIn</Button>
-                            : <Button disabled={true}>Login</Button>
+            <Button href="#Login">Sign In</Button>
+            <Button href="#Registration">Registration</Button>
+            <div className='loginBlock'>
+                <h2>Please enter your login(email) and password!</h2>
+                <Formik
+                    initialValues={{ email: '', password: '' }}
+                    validate={values => {
+                        const errors = {};
+                        if (!values.email) {
+                            errors.email = 'The email field is empty!';
+                        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+                        ) {
+                            errors.email = 'Email is not entered correctly';
                         }
-                    </Form>
-                )}
-            </Formik>
+                        if (!values.password) {
+                            errors.password = 'The password field is empty!!';
+                        } return errors;
+                    }}
+                >
+                    {({ values }) => (
+                        <Form>
+                            <Field
+                                type="email"
+                                name="email"
+                            />
+                            <ErrorMessage name="email" component="div" />
+                            <br />
+                            <Field
+                                type="password"
+                                name="password" />
+                            <ErrorMessage name="password" component="div" />
+                            <br />
+                            <Button onClick={props.isReg.find(item =>
+                                item.login == values.email && item.password == values.password)
+                                ? handleOpen : null}>LogIn</Button>
+
+                        </Form>
+                    )}
+                </Formik>
+                <div>
+                    {myLog}
+                </div>
+            </div>
         </div>
     )
 }
