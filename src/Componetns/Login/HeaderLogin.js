@@ -4,15 +4,13 @@ import { FormControlLabel, Switch, } from '@material-ui/core';
 
 let HeaderLogin = (props) => {
     let handleClick = () => {
+        debugger;
         localStorage.isAuth = false;
         props.setIsAuth(false);
-        debugger;
     }
     return (
         <div>
-
             <div></div>
-
             {localStorage.getItem('isAuth') == 'true'
                 ? <FormControlLabel  //переключение logIn, logAut
                     control={

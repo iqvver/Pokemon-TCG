@@ -4,9 +4,10 @@ const ADD_USER = 'ADD_USER';
 let initialState = {
     isAuth: '',
     loginAndPassword: [
-        {id: 0, username: 'iqvver', login: 'iqvver@gamil.com', password: 1234 },
-        {id: 1, username: 'smart', login: 'smart@gamil.com', password: 1488 },
+        { id: 0, username: 'iqvver', login: 'iqvver@gamil.com', password: 1234 },
+        { id: 1, username: 'smart', login: 'smart@gamil.com', password: 1488 },
     ],
+
 };
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -14,11 +15,18 @@ const authReducer = (state = initialState, action) => {
             return { ...state, isAuth: action.isAuth }
         }
         case ADD_USER: {
-            let newUser = action.newUser;
+            let user = action.newUserName;
+            let login = action.newUserLogin;
+            let pass = action.newUserPass;
+
             return {
                 ...state,
-                loginAndPassword: [...state.loginAndPassword, 
-                    {id: 3, username: newUser, login: newUser, password: newUser}]
+                loginAndPassword: [...state.loginAndPassword,
+                {
+                    username: user,
+                    login: login,
+                    password: pass,
+                }]
             };
         }
         default:
@@ -26,7 +34,7 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setIsAuthAC = (isAuth) => ({type: IS_AUTH, isAuth})
-export const newUserAC = (newUser) => ({type: ADD_USER, newUser})
+export const setIsAuthAC = (isAuth) => ({ type: IS_AUTH, isAuth })
+export const newUserAC = (newUserName, newUserLogin, newUserPass) => ({ type: ADD_USER, newUserName, newUserLogin, newUserPass })
 
 export default authReducer;

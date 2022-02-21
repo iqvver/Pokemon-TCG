@@ -1,60 +1,75 @@
 import * as React from 'react';
 import './Login.css';
 import Button from '@mui/material/Button'
-import { newUserAC, } from "../../redux/auth-reducer";
-import { connect } from 'react-redux';
-
-let mapStateToProps = (state) => {
-    return {
-        isAuth: state.isAuth,
-    }
-}
-let mapDispatchToProps = (dispatch) => {
-    return {
-        addUser: (newUser) => {
-            dispatch(newUserAC(newUser));
-        }
-    }
-}
-
+import { Field, reduxForm } from 'redux-form';
 
 const Registration = (props) => {
-    debugger;
-
-    const myLog = [...props.isAuth.loginAndPassword].map(l =>
+    let myLog = [...props.loginAndPassword].reverse().map(l =>
         <div>
             name:{l.username} <br />
-            login:{l.login} <br />
+            login(email):{l.login} <br />
             password:{l.password}
         </div>);
+    let addNewUser = (value) => {
+        if (value.newUserPass === value.newUserPass2) {
+            props.addUser(value.newUserName, value.newUserLogin, value.newUserPass);
+            alert('Все ОК');
+        }
+        else if (value.newUserPass !== value.newUserPass2)
+            alert('Пароли не совпадают');
+    }
     return (
         <div className='registrationForm'>
             <Button href="#Login">Sign In</Button>
             <Button href="#Registration">Registration</Button>
-            <div className='registrationBlock'>
-                <h2>Enter the registration details.</h2>
-                <div className='inputWrapper'>
-                    <input className='fieldEmail'
-                        type='text'
-                        placeholder='Name on the site' /><br />
-                    <input className='inputEmail'
-                        type='email'
-                        placeholder='Your email' /> <br />
-                    <input className='inputPass'
-                        type="password"
-                        placeholder='Your password' /> <br />
-                    <input className='inputPassTo'
-                        type="password"
-                        placeholder='Repeat the password' /> <br />
-                    <Button>Registration</Button>
-                </div>
-            </div>
-
             <div>
-                    {myLog}
-                </div>
+                <AddUserFormRedux onSubmit={addNewUser} />
+            </div>
         </div>
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Registration);
+const MyUser = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div className='registrationBlock'>
+                <h2>Enter the registration details.</h2>
+                <div className='inputWrapper'>
+                    <Field className='fieldEmail'
+                        name='newUserName'
+                        component='input'
+                        type='text'
+                        placeholder='Enter your name' />
+                    <br />
+                    <Field className='inputEmail'
+                        name='newUserLogin'
+                        type='email'
+                        component='input'
+                        placeholder='Your email' />
+                    <br />
+                    <input className='inputPass'
+                        name='newUserPass'
+                        component='input'
+                        type="password"
+                        placeholder='Your password' />
+                    <br />
+                    <Field className='inputPassTo'
+                        name='newUserPass2'
+                        component='input'
+                        type="text"
+                        placeholder='Repeat the password' />
+                    <br />
+                    <div>
+                        <button>Registration</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    )
+};
+
+const AddUserFormRedux = reduxForm({
+    form: 'userAddForm',
+})(MyUser);
+
+export default Registration;

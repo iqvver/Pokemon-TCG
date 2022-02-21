@@ -34,7 +34,7 @@ const Login = (props) => {
     const myLog = [...props.isReg].map(l =>
         <div>
             name:{l.username} <br />
-            login:{l.login} <br />
+            login(email):{l.login} <br />
             password:{l.password}
         </div>);
 
