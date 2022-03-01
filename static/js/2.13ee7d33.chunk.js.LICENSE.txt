@@ -4,13 +4,15 @@ object-assign
 @license MIT
 */
 
-/** @license MUI v5.2.0
+/**
+ * A better abstraction over CSS.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * @copyright Oleg Isonen (Slobodskoi) / Isonen 2014-present
+ * @website https://github.com/cssinjs/jss
+ * @license MIT
  */
 
-/** @license Material-UI v5.0.0-beta.5
+/** @license MUI v5.4.4
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.

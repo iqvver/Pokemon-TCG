@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/KODE_test/static/css/main.f4aee811.chunk.css",
-    "main.js": "/KODE_test/static/js/main.3ebffd7a.chunk.js",
-    "main.js.map": "/KODE_test/static/js/main.3ebffd7a.chunk.js.map",
-    "runtime-main.js": "/KODE_test/static/js/runtime-main.02143cf7.js",
-    "runtime-main.js.map": "/KODE_test/static/js/runtime-main.02143cf7.js.map",
+    "main.css": "/KODE_test/static/css/main.42f9ac15.chunk.css",
+    "main.js": "/KODE_test/static/js/main.5a44507b.chunk.js",
+    "main.js.map": "/KODE_test/static/js/main.5a44507b.chunk.js.map",
+    "runtime-main.js": "/KODE_test/static/js/runtime-main.061d2f8b.js",
+    "runtime-main.js.map": "/KODE_test/static/js/runtime-main.061d2f8b.js.map",
     "static/css/2.2b3ed1ef.chunk.css": "/KODE_test/static/css/2.2b3ed1ef.chunk.css",
-    "static/js/2.cb62b263.chunk.js": "/KODE_test/static/js/2.cb62b263.chunk.js",
-    "static/js/2.cb62b263.chunk.js.map": "/KODE_test/static/js/2.cb62b263.chunk.js.map",
-    "static/js/3.47cd815e.chunk.js": "/KODE_test/static/js/3.47cd815e.chunk.js",
-    "static/js/3.47cd815e.chunk.js.map": "/KODE_test/static/js/3.47cd815e.chunk.js.map",
+    "static/js/2.13ee7d33.chunk.js": "/KODE_test/static/js/2.13ee7d33.chunk.js",
+    "static/js/2.13ee7d33.chunk.js.map": "/KODE_test/static/js/2.13ee7d33.chunk.js.map",
+    "static/js/3.6b7c4f4a.chunk.js": "/KODE_test/static/js/3.6b7c4f4a.chunk.js",
+    "static/js/3.6b7c4f4a.chunk.js.map": "/KODE_test/static/js/3.6b7c4f4a.chunk.js.map",
     "index.html": "/KODE_test/index.html",
     "static/css/2.2b3ed1ef.chunk.css.map": "/KODE_test/static/css/2.2b3ed1ef.chunk.css.map",
-    "static/css/main.f4aee811.chunk.css.map": "/KODE_test/static/css/main.f4aee811.chunk.css.map",
-    "static/js/2.cb62b263.chunk.js.LICENSE.txt": "/KODE_test/static/js/2.cb62b263.chunk.js.LICENSE.txt",
+    "static/css/main.42f9ac15.chunk.css.map": "/KODE_test/static/css/main.42f9ac15.chunk.css.map",
+    "static/js/2.13ee7d33.chunk.js.LICENSE.txt": "/KODE_test/static/js/2.13ee7d33.chunk.js.LICENSE.txt",
     "static/media/Header.css": "/KODE_test/static/media/WhiteChick.f0023aae.ttf",
     "static/media/pokelogo.08b3d8ee.png": "/KODE_test/static/media/pokelogo.08b3d8ee.png",
     "static/media/500.css": "/KODE_test/static/media/roboto-vietnamese-500-normal.b8e494da.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.02143cf7.js",
+    "static/js/runtime-main.061d2f8b.js",
     "static/css/2.2b3ed1ef.chunk.css",
-    "static/js/2.cb62b263.chunk.js",
-    "static/css/main.f4aee811.chunk.css",
-    "static/js/main.3ebffd7a.chunk.js"
+    "static/js/2.13ee7d33.chunk.js",
+    "static/css/main.42f9ac15.chunk.css",
+    "static/js/main.5a44507b.chunk.js"
   ]
 }
