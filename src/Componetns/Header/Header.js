@@ -22,9 +22,9 @@ const Header = (props) => {
     return (
         <div>
             <div className='back'>
-                <div className='logo'>
+                {/*<div className='logo'>
                     <NavLink to={'/home'}><img src={pokelogo} /></NavLink>
-                </div>
+    </div>*/}
                 <div className='header-text'>
                     <NavLink to={'/home'}>
                         <h1>

@@ -1,43 +1,34 @@
-.logo {
-    float: left;
-    margin-top: 5px;
-    position: absolute;
-    left: 0px;
+.back {
+    background-color: #282c34;
 }
-
-.logo img {
-    width: 300px;
-}
-
 .header-text {
-    position: absolute;
-    left: 200px;
-    width: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 .header-text h1 {
-    font-size: 60px;
-    margin-top: 5px;
+    font-size: 100px;
+    margin-top: 60px;
     color: ghostwhite;
     font-family: Pompadur;
 }
-
 @font-face {
     font-family: Pompadur;
     src: url(../../assets/font/WhiteChick.ttf)
 }
 .login-block {
-    width: 200px;
-    height: 80px;
-    position: absolute;
-    right: 0px;
-    margin-top: 15px;
+    float: right;
+    display: flex;
+    margin-top: -220px;
 }
 .login-block a {
     text-decoration: none;
 }
-.back {
-    background-color: #282c34;
-    width: auto;
-    height: 80px;
+
+.logo {
+    
+}
+
+.logo img {
+    
 }

@@ -1,16 +1,14 @@
 .App {
   text-align: center;
   display: grid;
+}
+@media (max-width: 1000px){
+  App-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.App-content {
   background-color: rgb(217, 217, 250);
-}
-.App-header {
-  background-color: #282c34;
-}
-.App-link {
-  color: #61dafb;
-}
-.login-Block {
-  height: 250px;
-  width: 400px;
-  margin-top: 20px;
+  width: auto;
 }

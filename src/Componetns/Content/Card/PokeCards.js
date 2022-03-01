@@ -40,26 +40,23 @@ let PokeCards = (props) => {
                     return <span key={index} onClick={() => { props.onPageChanged(page); }}>{children}</span>;
                 })}
             </div>
-
-            <Container className="containerGrid">
-                <Grid container className="containerGrid">
-                    {props.pokemons.map(p => <Grid className="cardGrid" xs={12} sm={8} md={3} key={p.id}>
-                        <Card>
-                            <CardMedia className="cardMediaGrid" xs={4} xs={8}>
-                                <NavLink to={'/cards/' + p.id}>  <img src={p.images.small} className='pokeCard' /> </NavLink>
-                                <CardContent className='cardContent'>
-                                    <Typography gutterBottom variant="h7" component="div">
-                                        <div>Имя:{p.name}</div>
-                                        <div>Тип:{p.types}</div>
-                                        <div>Хозяин:{p.artist}</div>
-                                    </Typography>
-                                </CardContent>
-                            </CardMedia>
-                        </Card>
-                    </Grid>)
-                    }
-                </Grid>
-            </Container>
+            <Grid container className="containerGrid">
+                {props.pokemons.map(p => <Grid className="cardGrid" key={p.id}>
+                    <Card>
+                        <CardMedia className="cardMediaGrid" xs={4} xs={8}>
+                            <NavLink to={'/cards/' + p.id}>  <img src={p.images.small} className='pokeCard' /> </NavLink>
+                            <CardContent className='cardContent'>
+                                <Typography gutterBottom variant="h7" component="div">
+                                    <div>Имя:{p.name}</div>
+                                    <div>Тип:{p.types}</div>
+                                    <div>Хозяин:{p.artist}</div>
+                                </Typography>
+                            </CardContent>
+                        </CardMedia>
+                    </Card>
+                </Grid>)
+                }
+            </Grid>
         </div>
     )
 }
