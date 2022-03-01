@@ -8,8 +8,6 @@ The Ultra Super Pokemon 5G Pro is easy to use and run. Just open up the client i
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-dfda
-
 
 ### `Technologies Used`
 - JavaScript
