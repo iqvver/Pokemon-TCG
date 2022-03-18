@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import React from 'react';
 import { newUserAC, } from "../../redux/auth-reducer";
 import Registration from './Registration';
 

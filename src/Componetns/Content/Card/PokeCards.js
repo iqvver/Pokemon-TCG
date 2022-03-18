@@ -2,7 +2,7 @@ import *as React from 'react'
 import usePagination from '@mui/material/usePagination';
 import Button from '@mui/material/Button';
 import '../Content.css';
-import { Card, CardContent, CardMedia, Container, Grid } from '@mui/material';
+import { Card, CardContent, CardMedia, Grid } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 

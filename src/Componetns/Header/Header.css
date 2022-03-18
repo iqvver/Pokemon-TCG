@@ -18,8 +18,7 @@
 }
 .login-block {
     float: right;
-    display: flex;
-    margin-top: -220px;
+    
 }
 .login-block a {
     text-decoration: none;

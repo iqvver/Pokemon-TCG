@@ -22,14 +22,19 @@ const style = {
 
 const Login = (props) => {
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+        setOpen(true);
+    }
     const handleClose = () => setOpen(false);
-    if (localStorage.getItem('isAuth') == 'true') {
+    if (localStorage.getItem('isAuth') === 'true') {
         return <Redirect to={'/home'} />
     }
     let handleClick = () => {
         localStorage.isAuth = true;
         props.setIsAuth(true);
+    }
+    let hwhw = () => {
+        alert('Логин или пароль не верны!')
     }
     const myLog = [...props.isReg].map(l =>
         <div>
@@ -85,8 +90,7 @@ const Login = (props) => {
                             <br />
                             <Button onClick={props.isReg.find(item =>
                                 item.login == values.email && item.password == values.password)
-                                ? handleOpen : null}>LogIn</Button>
-
+                                ? handleOpen : hwhw }>LogIn</Button>
                         </Form>
                     )}
                 </Formik>

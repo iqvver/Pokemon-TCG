@@ -6,7 +6,6 @@ import PokeCardContainer from './Componetns/Content/Card/PokeCardContainer';
 import CardContainer from './Componetns/Content/Card/CardContainer';
 import LoginContainer from './Componetns/Login/LoginContainer';
 import HeaderContainer from './Componetns/Header/HeaderContainer';
-import Registration from './Componetns/Login/Registration';
 import RegistrationContainer from './Componetns/Login/RegistrationContainer'
 
 function App() {

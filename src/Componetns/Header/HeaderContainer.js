@@ -12,6 +12,7 @@ class HeaderContainer extends Component {
 let mapStateToProps = (state) => {
     return {
         isAuth: state.isAuth.isAuth,
+        isUs: state.isAuth.isUs
     }
 }
 let mapDispatchToProps = (dispatch) => {

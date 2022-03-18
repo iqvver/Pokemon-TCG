@@ -33,7 +33,7 @@ export default class OTPgen extends Component {
                         const errors = {};
                         if (!values.kode) {
                             errors.kode = 'The kode field is empty!!';
-                        } else if (values.kode !== `${this.state.random}`) {
+                        } else if (values.kode != `${this.state.random}`) {
                             errors.kode = 'The kode is not correct!';
                         } return errors;
                     }}>

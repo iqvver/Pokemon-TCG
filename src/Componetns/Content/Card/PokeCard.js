@@ -60,7 +60,8 @@ const PokeCard = (props) => {
                     component="img"
                     sx={{
                         width: 500,
-                        height: 700
+                        height: 700,
+                        marginTop: 5
                     }}
                     image={props.pokemonsProfile.data.images.large}
                     alt="Live from space album cover"

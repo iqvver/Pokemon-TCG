@@ -9,6 +9,7 @@ import HeaderLogin from '../Login/HeaderLogin';
 let mapStateToProps = (state) => {
     return {
         isAuth: state.isAuth.isAuth,
+        isUs: state.isAuth.isUs
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -34,6 +35,7 @@ const Header = (props) => {
                 </div>
                 <div className='login-block'>
                     <HeaderLogin isAuth={props.isAuth}
+                        isUs={props.isUs}
                         setIsAuth={props.setIsAuth} />
                 </div>
             </div>

@@ -4,13 +4,16 @@ import { FormControlLabel, Switch, } from '@material-ui/core';
 
 let HeaderLogin = (props) => {
     let handleClick = () => {
-        debugger;
         localStorage.isAuth = false;
         props.setIsAuth(false);
     }
     return (
         <div>
-            <div></div>
+            {localStorage.getItem('isAuth') == 'true' ?
+                props.setIsAuth(true) || <div>
+                    {props.isUs}
+                </div> : props.setIsAuth(false) || <div>offLne</div>}
+
             {localStorage.getItem('isAuth') == 'true'
                 ? <FormControlLabel  //переключение logIn, logAut
                     control={
@@ -22,7 +25,7 @@ let HeaderLogin = (props) => {
                     label={'Выйти'} />
                 : <FormControlLabel disabled
                     control={
-                        <Switch />}
+                        <Switch /> }
                     label={<NavLink to={'/login'}></NavLink>} />}
         </div>
     )
