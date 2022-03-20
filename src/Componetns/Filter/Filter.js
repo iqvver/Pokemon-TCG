@@ -4,9 +4,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import * as React from 'react';
-import './Navbar.css';
+import './Filter.css';
 
-let Navbar = (props) => {
+let Filter = (props) => {
     const [ , setAge] = React.useState('');
     const handleChange = (event) => {
         setAge(event.target.value);
@@ -43,4 +43,4 @@ let Navbar = (props) => {
         </div>
     </div>
 }
-export default Navbar;
+export default Filter;

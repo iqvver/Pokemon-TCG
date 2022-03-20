@@ -2,10 +2,11 @@ import React from 'react';
 import { connect } from "react-redux";
 import { setPokemonsAC, setCurrentPageAC, setPokemonsTotalCountAC, setIsFetchingAC } from '../../../redux/pokecard-reducer';
 import PokeCards from './PokeCards';
-import *as axios from 'axios';
-import { Redirect } from 'react-router'
 import '../Content.css';
 import LinearProgress from '@mui/material/LinearProgress';
+import { pokemonsAPI } from '../../../Api/Api';
+import { compose } from 'redux';
+import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
 
 let mapStateToProps = (state) => {
     return {
@@ -35,23 +36,20 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 const pokeCardContainer = (props) => {
-    if ((localStorage.getItem('isAuth') == 'false') || (localStorage.getItem('isAuth') == '{"isAuth":""}')) {
-        return <Redirect to={'/login'} />
-    }
     if (props.pokemons.length === 0) {
         props.setIsFetching(true);
-        axios.get(`https://api.pokemontcg.io/v2/cards?page=${props.currentPage}&count=${props.pageSize}`).then(card => {
+        pokemonsAPI.getPokemon().then(data => {
             props.setIsFetching(false);
-            props.setPokemons(card.data.data);
-            props.setPokemonsTotalCount(card.data.totalCount);
+            props.setPokemons(data.data);
+            props.setPokemonsTotalCount(data.totalCount);
         });
     }
     let onPageChanged = (pageNumber) => {
         props.setCurrentPage(pageNumber);
         props.setIsFetching(true);
-        axios.get(`https://api.pokemontcg.io/v2/cards?page=${pageNumber}&count=${props.pageSize}`).then(card => {
+        pokemonsAPI.getPokemon().then(data => {
             props.setIsFetching(false);
-            props.setPokemons(card.data.data)
+            props.setPokemons(data.data)
         });
     }
 
@@ -71,4 +69,4 @@ const pokeCardContainer = (props) => {
     )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(pokeCardContainer);
+export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(pokeCardContainer);

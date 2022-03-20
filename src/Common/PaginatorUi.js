@@ -1,7 +1,7 @@
 import *as React from 'react'
 import usePagination from '@mui/material/usePagination';
 import Button from '@mui/material/Button';
-import *as axios from "axios"
+import * as axios from "axios"
 
 
 let PaginatorUi = (props) => {

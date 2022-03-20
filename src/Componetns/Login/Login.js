@@ -33,7 +33,7 @@ const Login = (props) => {
         localStorage.isAuth = true;
         props.setIsAuth(true);
     }
-    let hwhw = () => {
+    let loginError = () => {
         alert('Логин или пароль не верны!')
     }
     const myLog = [...props.isReg].map(l =>
@@ -90,7 +90,7 @@ const Login = (props) => {
                             <br />
                             <Button onClick={props.isReg.find(item =>
                                 item.login == values.email && item.password == values.password)
-                                ? handleOpen : hwhw }>LogIn</Button>
+                                ? handleOpen : loginError }>LogIn</Button>
                         </Form>
                     )}
                 </Formik>

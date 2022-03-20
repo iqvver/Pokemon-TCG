@@ -17,8 +17,8 @@
     src: url(../../assets/font/WhiteChick.ttf)
 }
 .login-block {
+    margin-left: 5px;
     float: right;
-    
 }
 .login-block a {
     text-decoration: none;
@@ -30,4 +30,8 @@
 
 .logo img {
     
+}
+.nav-bar {
+    width: auto;
+    height: 60px;  
 }

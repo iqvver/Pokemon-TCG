@@ -2,7 +2,9 @@ import * as React from 'react';
 import * as axios from "axios"
 import { connect } from "react-redux";
 import { setTypeAC, setSubTypeAC } from '../../redux/navbar-reducer';
-import Navbar from './Navbar';
+import Filter from './Filter';
+import { compose } from 'redux';
+import { withAuthRedirect } from '../../Hoc/withAuthRedirect';
 
 let mapStateToProps = (state) => {
     return {
@@ -21,7 +23,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let NavbarContainer = (props) => {
+let FilterContainer = (props) => {
     if (props.typepoke.length === 0) {
         axios.get("https://api.pokemontcg.io/v2/types").then(type => {
             props.setTypePoke(type.data.data)
@@ -33,9 +35,9 @@ let NavbarContainer = (props) => {
         });
     }
     return <>
-        <Navbar typepoke={props.typepoke}
+        <Filter typepoke={props.typepoke}
             subtypepoke={props.subtypepoke} />
     </>
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer);
+export default compose(connect(mapStateToProps, mapDispatchToProps),withAuthRedirect)(FilterContainer);

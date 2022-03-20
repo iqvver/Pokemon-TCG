@@ -5,6 +5,7 @@ import { setIsAuthAC } from '../../redux/auth-reducer';
 import './Header.css';
 import { connect } from "react-redux";
 import HeaderLogin from '../Login/HeaderLogin';
+import NavBarButton from '../NavBar/NavBarButton';
 
 let mapStateToProps = (state) => {
     return {
@@ -33,13 +34,18 @@ const Header = (props) => {
                         </h1>
                     </NavLink>
                 </div>
-                <div className='login-block'>
-                    <HeaderLogin isAuth={props.isAuth}
-                        isUs={props.isUs}
-                        setIsAuth={props.setIsAuth} />
+
+                <div className='nav-bar'>
+                    <div className='login-block'>
+                        <HeaderLogin isAuth={props.isAuth}
+                            isUs={props.isUs}
+                            setIsAuth={props.setIsAuth} />
+                    </div>
+                    <NavBarButton />
                 </div>
             </div>
         </div>
+
     )
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

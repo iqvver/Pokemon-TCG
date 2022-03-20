@@ -7,6 +7,8 @@ import CardContainer from './Componetns/Content/Card/CardContainer';
 import LoginContainer from './Componetns/Login/LoginContainer';
 import HeaderContainer from './Componetns/Header/HeaderContainer';
 import RegistrationContainer from './Componetns/Login/RegistrationContainer'
+import FilterContainer from './Componetns/Filter/FilterContainer';
+import DarkMode from './Common/DarkMode';
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <HeaderContainer />
       </header>
       <div className='App-navBar'>
+        
       </div>
       <div className='App-content'>
         <div>
@@ -23,6 +26,7 @@ function App() {
           <Route path='/login' render={() => <LoginContainer />} />
           <Route path='/cards/:pokeId?' render={() => <CardContainer />} />
           <Route path='/registration' render={() => <RegistrationContainer />} />
+          <Route path='/filter' render={() => <FilterContainer />} />
         </div>
       </div>
     </div>
