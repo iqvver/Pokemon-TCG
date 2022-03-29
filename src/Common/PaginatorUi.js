@@ -1,21 +1,12 @@
-import *as React from 'react'
+import * as React from 'react'
 import usePagination from '@mui/material/usePagination';
 import Button from '@mui/material/Button';
-import * as axios from "axios"
 
-
-let PaginatorUi = (props) => {
-
-  let onPageChanged = (pageNumber) => {
-    props.setCurrentPage(pageNumber);
-    axios.get(`https://api.pokemontcg.io/v2/cards?page=${pageNumber}&count=${props.pageSize}`).then(card => {
-        props.setPokemons(card.data.data)
-    });
-  }
-
-  let pagesCount = Math.ceil(props.totalCount / props.pageSize); //вычисляем и рисуем все страницы
-  const { items } = usePagination({
+let PaginatorUi = ({ onPageChanged, pageSize, totalCount, currentPage }) => {
+  let pagesCount = Math.ceil(totalCount / pageSize); //вычисляем и рисуем все страницы
+  let { items } = usePagination({
     count: pagesCount,
+    selected: currentPage
   });
 
   return ( //поведение пагинатора
@@ -30,6 +21,7 @@ let PaginatorUi = (props) => {
               type="button"
               style={{
                 fontWeight: selected ? 'bold' : undefined,
+                color: selected ? '#000' : undefined,
               }}
               {...item}
             >

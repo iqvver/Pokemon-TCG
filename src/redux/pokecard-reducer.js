@@ -1,4 +1,5 @@
-//import { pokeCardAPI } from '../Api/Api'
+import { pokemonsAPI } from '../Api/Api'
+
 const SET_POKE = 'SET_POKE';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_POKEMONS_COUNT = 'SET_TOTAL_POKEMONS_COUNT';
@@ -39,6 +40,16 @@ const pokecardReducer = (state = initialState, action) => {
 export const setPokemonsAC = (pokemons) => ({ type: SET_POKE, pokemons });
 export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
 export const setPokemonsTotalCountAC = (totalCount) => ({ type: SET_TOTAL_POKEMONS_COUNT, count: totalCount })
-export const setIsFetchingAC = (isFetching) => ({type: IS_FETCHING, isFetching})
+export const setIsFetchingAC = (isFetching) => ({ type: IS_FETCHING, isFetching })
 
-export default pokecardReducer;
+export const getPokemons = (currentPage, pageSize) => {
+    return async (dispatch) => {
+        dispatch(setIsFetchingAC(true));
+        let card = await pokemonsAPI.getPokemons(currentPage, pageSize);
+            dispatch(setIsFetchingAC(false));
+            dispatch(setPokemonsAC(card.data));
+            dispatch(setPokemonsTotalCountAC(card.totalCount));
+    }
+}
+
+    export default pokecardReducer;

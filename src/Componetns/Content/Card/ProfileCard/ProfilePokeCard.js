@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './PokeCard.css';
+import './ProfilePokeCard.css';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,7 +8,7 @@ import { Divider } from '@material-ui/core';
 import LinearProgress from '@mui/material/LinearProgress';
 import Button from '@mui/material/Button';
 
-const PokeCard = (props) => {
+const ProfilePokeCard = (props) => {
     if (!props.pokemonsProfile) {
         return <LinearProgress />
     }
@@ -70,4 +70,4 @@ const PokeCard = (props) => {
         </div >
     )
 }
-export default PokeCard;
+export default ProfilePokeCard;

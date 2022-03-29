@@ -9,10 +9,15 @@ const instance = axios.create({
 });
 
 export const pokemonsAPI = {
-    getPokemon(currentPage = 1, pageSize = 250) {
+    getPokemons(currentPage = 1, pageSize = 250) {
         return instance.get(`cards?page=${currentPage}&count=${pageSize}`)
             .then(card => {
                 return card.data;
             });
+    }
+}
+export const profileCardAPI = {
+    getCard(pokeId) {
+        return instance.get(`cards/` + pokeId);
     }
 }

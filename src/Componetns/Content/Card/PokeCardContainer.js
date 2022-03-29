@@ -1,12 +1,42 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { setPokemonsAC, setCurrentPageAC, setPokemonsTotalCountAC, setIsFetchingAC } from '../../../redux/pokecard-reducer';
+import { getPokemons } from '../../../redux/pokecard-reducer';
 import PokeCards from './PokeCards';
 import '../Content.css';
 import LinearProgress from '@mui/material/LinearProgress';
-import { pokemonsAPI } from '../../../Api/Api';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
+
+class pokeCardContainer extends React.Component {
+    componentDidMount() {
+        this.props.getPokemons(this.props.currentPage, this.props.pageSize);
+    }
+
+    onPageChanged = (pageNumber) => {
+        this.props.getPokemons(pageNumber, this.props.pageSize);
+    }
+    componentDidUpdate(prevProps, prevState) {
+        let a = this.state;
+        let b = this.props;
+        console.log('componentDidUpdate')
+    }
+    render() {
+        return (<>
+            {this.props.isFetching ? <LinearProgress /> : null}
+            <PokeCards
+                totalCount={this.props.totalCount}
+                pageSize={this.props.pageSize}
+                currentPage={this.props.currentPage}
+                onPageChanged={this.onPageChanged}
+                pokemons={this.props.pokemons}
+                setPokemons={this.props.setPokemons}
+                setPokemonsTotalCount={this.props.setPokemonsTotalCount}
+                setCurrentPage={this.props.setCurrentPage}
+                isFetching={this.props.isFetching} />
+        </>
+        )
+    }
+}
 
 let mapStateToProps = (state) => {
     return {
@@ -18,55 +48,6 @@ let mapStateToProps = (state) => {
         isAuth: state.isAuth.isAuth
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        setPokemons: (pokemons) => {
-            dispatch(setPokemonsAC(pokemons));
-        },
-        setCurrentPage: (pageNumber) => {
-            dispatch(setCurrentPageAC(pageNumber))
-        },
-        setPokemonsTotalCount: (totalCount) => {
-            dispatch(setPokemonsTotalCountAC(totalCount))
-        },
-        setIsFetching: (isFetching) => {
-            dispatch(setIsFetchingAC(isFetching))
-        },
-    }
-}
 
-const pokeCardContainer = (props) => {
-    if (props.pokemons.length === 0) {
-        props.setIsFetching(true);
-        pokemonsAPI.getPokemon().then(data => {
-            props.setIsFetching(false);
-            props.setPokemons(data.data);
-            props.setPokemonsTotalCount(data.totalCount);
-        });
-    }
-    let onPageChanged = (pageNumber) => {
-        props.setCurrentPage(pageNumber);
-        props.setIsFetching(true);
-        pokemonsAPI.getPokemon().then(data => {
-            props.setIsFetching(false);
-            props.setPokemons(data.data)
-        });
-    }
-
-    return (<>
-        {props.isFetching ? <LinearProgress /> : null}
-        <PokeCards
-            totalCount={props.totalCount}
-            pageSize={props.pageSize}
-            currentPage={props.currentPage}
-            onPageChanged={onPageChanged}
-            pokemons={props.pokemons}
-            setPokemons={props.setPokemons}
-            setPokemonsTotalCount={props.setPokemonsTotalCount}
-            setCurrentPage={props.setCurrentPage}
-            isFetching={props.isFetching} />
-    </>
-    )
-}
-
-export default compose(connect(mapStateToProps, mapDispatchToProps), withAuthRedirect)(pokeCardContainer);
+export default compose(
+    connect(mapStateToProps, { getPokemons }), withAuthRedirect)(pokeCardContainer);

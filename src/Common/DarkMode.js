@@ -1,11 +1,9 @@
 import * as React from 'react';
 import './DarkMode.css';
 
-
 const DarkMode = () => {
 const body = document.querySelector('body');
 const toggle = document.getElementById('toggle');
-
     return (
         <body>
             <div className="theme-toggle" >

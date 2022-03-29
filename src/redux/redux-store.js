@@ -1,9 +1,10 @@
-import {combineReducers, createStore} from "redux";
+import { applyMiddleware, combineReducers, createStore, compose } from "redux"
 import navbarReducer from "./navbar-reducer";
 import pokecardReducer from "./pokecard-reducer";
 import cardReducer from "./card-reducer";
 import authReducer from "./auth-reducer";
 import { reducer as formReducer } from 'redux-form';
+import thunkMiddleware from 'redux-thunk'
 
 let reducers = combineReducers({
     pokemonCardPage: pokecardReducer,
@@ -13,8 +14,7 @@ let reducers = combineReducers({
     form: formReducer
 });
 
-let store = createStore(reducers);
-
-window.store = store;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+let store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)));
 
 export default store;
