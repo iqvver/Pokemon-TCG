@@ -1,10 +1,21 @@
-.comboFilter {
+.filter-Container {
+    display: flex;
+    flex-direction: row;
+}
+.filter-Block {
+    flex: 1;
     margin-top: 20px;
     padding: 10px;
+    background-color: rgb(156, 82, 82) ;
 }
 .subtype-Block {
     margin-top: 15px;
 }
 .button-Block {
     margin-top: 15px;
+}
+.card-Block {
+    flex: 5;
+    margin-top: 20px;
+    background-color: blueviolet;
 }
