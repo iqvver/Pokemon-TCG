@@ -3,11 +3,12 @@ import * as React from 'react';
 import { Redirect } from 'react-router'
 import { Route } from 'react-router-dom';
 import PokeCardContainer from './Componetns/Content/Card/PokeCardContainer';
-import LoginContainer from './Componetns/Login/LoginContainer';
+import LoginContainer from './Componetns/Authentication/Login/LoginContainer';
 import HeaderContainer from './Componetns/Header/HeaderContainer';
-import RegistrationContainer from './Componetns/Login/RegistrationContainer'
+import RegistrationContainer from './Componetns/Authentication/Registration/RegistrationContainer'
 import FilterContainer from './Componetns/Filter/FilterContainer';
 import ProfileCardContainer from './Componetns/Content/Card/ProfileCard/ProfileCardContainer';
+import NavBarButton from './Componetns/NavBar/NavBarButton';
 
 function App() {
   return (
@@ -16,17 +17,15 @@ function App() {
         <HeaderContainer />
       </header>
       <div className='App-navBar'>
-        
+<NavBarButton />
       </div>
       <div className='App-content'>
-        <div>
-          <Redirect from="/" to="/login" />
-          <Route path='/home' render={() => <PokeCardContainer />} />
-          <Route path='/login' render={() => <LoginContainer />} />
-          <Route path='/cards/:pokeId?' render={() => <ProfileCardContainer />} />
-          <Route path='/registration' render={() => <RegistrationContainer />} />
-          <Route path='/filter' render={() => <FilterContainer />} />
-        </div>
+        <Redirect from="/" to="/login" />
+        <Route path='/home' render={() => <PokeCardContainer />} />
+        <Route path='/login' render={() => <LoginContainer />} />
+        <Route path='/cards/:pokeId?' render={() => <ProfileCardContainer />} />
+        <Route path='/registration' render={() => <RegistrationContainer />} />
+        <Route path='/filter' render={() => <FilterContainer />} />
       </div>
     </div>
   );

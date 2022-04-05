@@ -19,6 +19,8 @@
 .login-block {
     margin-left: 5px;
     float: right;
+    width: auto;
+    height: 60px;  
 }
 .login-block a {
     text-decoration: none;

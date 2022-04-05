@@ -13,7 +13,6 @@ const NavBarButton = () => {
                 <span>Filter out Pokemon</span>
             </a>
         </div>
-
     )
 }
 export default NavBarButton;

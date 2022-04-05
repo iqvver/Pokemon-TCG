@@ -5,10 +5,11 @@ const SEARCH_POKEMON = 'SEARCH_POKEMON';
 let initialState = {
     typepoke: [],
     subtypepoke: [],
-    searchPokemon: { 
-        pokemonName: '1', 
-        pokemonType: '2', 
-        pokemonSubtype: '3'}
+    searchPokemon: {
+        pokemonName: '',
+        pokemonType: '',
+        pokemonSubtype: ''
+    }
 };
 
 const filterReducer = (state = initialState, action) => {

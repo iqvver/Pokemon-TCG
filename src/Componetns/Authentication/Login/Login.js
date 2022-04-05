@@ -6,19 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import OTP from '../../Common/OTP';
-
-const style = {
-    position: 'absolute',
-    top: '30%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
+import OTP from '../../../Common/OTP/OTP';
 
 const Login = (props) => {
     const [open, setOpen] = React.useState(false);
@@ -48,7 +36,7 @@ const Login = (props) => {
             <Modal
                 open={open}
                 onClose={handleClose}>
-                <Box sx={style}>
+                <Box className='otpBlock'>
                     <Typography variant="h6" align='center'>
                         Введите код для того, что-бы войти?
                     </Typography>

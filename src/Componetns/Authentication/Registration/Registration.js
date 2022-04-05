@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './Login.css';
+import './Registration.css';
 import Button from '@mui/material/Button'
 import { Field, reduxForm } from 'redux-form';
 
@@ -60,7 +60,7 @@ const MyUser = (props) => {
                         placeholder='Repeat the password' />
                     <br />
                     <div>
-                        <button>Registration</button>
+                        <Button type="submit">Registration</Button>
                     </div>
                 </div>
             </div>

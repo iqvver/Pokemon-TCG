@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { setIsAuthAC } from '../../redux/auth-reducer';
+import { setIsAuthAC } from '../../../redux/auth-reducer';
 import Login from './Login';
 
 let mapStateToProps = (state) => {

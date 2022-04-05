@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { Component } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import '../Componetns/Login/Login.css';
+import './OTP.css';
 
 export default class OTPgen extends Component {
 
@@ -51,8 +51,6 @@ export default class OTPgen extends Component {
                                         this.props.handleClick : null}>LogIn</Button>
                                 : <Button disabled={true}>Login</Button>
                             }
-
-
                             <Button onClick={this.props.onClose}>Cansel</Button>
                         </Form>
                     )}

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { newUserAC, } from "../../redux/auth-reducer";
+import { newUserAC, } from "../../../redux/auth-reducer";
 import Registration from './Registration';
 
 let mapStateToProps = (state) => {

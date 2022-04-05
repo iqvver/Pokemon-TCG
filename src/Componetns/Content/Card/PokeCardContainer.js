@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from "react-redux";
 import { getPokemons } from '../../../redux/pokecard-reducer';
 import PokeCards from './PokeCards';
-import '../Content.css';
 import LinearProgress from '@mui/material/LinearProgress';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
@@ -11,7 +10,6 @@ class pokeCardContainer extends React.Component {
     componentDidMount() {
         this.props.getPokemons(this.props.currentPage, this.props.pageSize);
     }
-
     onPageChanged = (pageNumber) => {
         this.props.getPokemons(pageNumber, this.props.pageSize);
     }

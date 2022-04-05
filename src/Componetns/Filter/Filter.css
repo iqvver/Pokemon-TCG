@@ -1,12 +1,17 @@
 .filter-Container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: auto;
+    height: auto;
 }
 .filter-Block {
     flex: 1;
     margin-top: 20px;
     padding: 10px;
-    background-color: rgb(156, 82, 82) ;
+    border-right: 1px solid rgba(117, 117, 117, 0.664);
 }
 .subtype-Block {
     margin-top: 15px;
@@ -17,5 +22,4 @@
 .card-Block {
     flex: 5;
     margin-top: 20px;
-    background-color: blueviolet;
 }

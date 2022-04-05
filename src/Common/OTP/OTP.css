@@ -1,0 +1,10 @@
+.otpForm {
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 3px  black;
+    border: none;
+    margin-bottom: 5px;
+}
