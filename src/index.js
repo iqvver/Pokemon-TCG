@@ -11,11 +11,11 @@ import '@fontsource/roboto/500.css';
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
-      
-        <Provider store={store}>
-          <App />
-        </Provider>
-      
+
+      <Provider store={store}>
+        <App />
+      </Provider>
+
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root'));

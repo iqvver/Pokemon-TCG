@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { getPokemons } from '../../../redux/pokecard-reducer';
-import PokeCards from './PokeCards';
 import LinearProgress from '@mui/material/LinearProgress';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
+import { Grid } from '@mui/material';
+import './PokeCards.css';
+import PaginatorUi from '../../../Common/Paginator/PaginatorUi';
+import Pokemon from './Pokemon';
 
 class pokeCardContainer extends React.Component {
     componentDidMount() {
@@ -21,16 +24,19 @@ class pokeCardContainer extends React.Component {
     render() {
         return (<>
             {this.props.isFetching ? <LinearProgress /> : null}
-            <PokeCards
-                totalCount={this.props.totalCount}
-                pageSize={this.props.pageSize}
-                currentPage={this.props.currentPage}
-                onPageChanged={this.onPageChanged}
-                pokemons={this.props.pokemons}
-                setPokemons={this.props.setPokemons}
-                setPokemonsTotalCount={this.props.setPokemonsTotalCount}
-                setCurrentPage={this.props.setCurrentPage}
-                isFetching={this.props.isFetching} />
+            <Grid container className='pagination-Block'>
+                <PaginatorUi
+                    currentPage={this.props.currentPage}
+                    onPageChanged={this.onPageChanged}
+                    totalCount={this.props.totalCount}
+                    pagesCount={this.props.pagesCount}
+                    pageSize={this.props.pageSize} />
+            </Grid>
+            <Grid container className="containerGrid">
+                {this.props.pokemons.map(pokemonCard =>
+                    <Pokemon pokemon={pokemonCard} />)
+                }
+            </Grid>
         </>
         )
     }
@@ -47,5 +53,5 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default compose(
-    connect(mapStateToProps, { getPokemons }), withAuthRedirect)(pokeCardContainer);
+export default compose(connect(
+    mapStateToProps, { getPokemons }), withAuthRedirect)(pokeCardContainer);

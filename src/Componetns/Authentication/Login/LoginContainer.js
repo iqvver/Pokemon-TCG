@@ -18,7 +18,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 const LoginContainer = (props) => {
-    return (<div>
+    return (
         <div>
             <Login
                 isAuth={props.isAuth}
@@ -26,7 +26,6 @@ const LoginContainer = (props) => {
                 isReg={props.isReg}
                 isUs={props.isUs} />
         </div>
-    </div>
     )
 }
 

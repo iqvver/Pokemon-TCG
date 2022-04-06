@@ -6,7 +6,7 @@ import PokeCardContainer from './Componetns/Content/Card/PokeCardContainer';
 import LoginContainer from './Componetns/Authentication/Login/LoginContainer';
 import HeaderContainer from './Componetns/Header/HeaderContainer';
 import RegistrationContainer from './Componetns/Authentication/Registration/RegistrationContainer'
-import FilterContainer from './Componetns/Filter/FilterContainer';
+import FilterContainer from './Componetns/Content/Filter/FilterContainer';
 import ProfileCardContainer from './Componetns/Content/Card/ProfileCard/ProfileCardContainer';
 import NavBarButton from './Componetns/NavBar/NavBarButton';
 

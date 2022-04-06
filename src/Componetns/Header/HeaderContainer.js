@@ -3,12 +3,6 @@ import Header from './Header'
 import { connect } from 'react-redux';
 import { setIsAuthAC } from "../../redux/auth-reducer";
 
-class HeaderContainer extends Component {
-    render() {
-        return <Header {...this.props} />
-    }
-}
-
 let mapStateToProps = (state) => {
     return {
         isAuth: state.isAuth.isAuth,
@@ -20,6 +14,14 @@ let mapDispatchToProps = (dispatch) => {
         setIsAuth: (isAuth) => {
             dispatch(setIsAuthAC(isAuth));
         }
+    }
+}
+
+class HeaderContainer extends Component {
+    render() {
+        return <Header setIsAuth={this.props.setIsAuth}
+            isAuth={this.props.isAuth}
+            isUs={this.props.isUs} />
     }
 }
 

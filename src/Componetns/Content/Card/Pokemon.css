@@ -1,4 +1,7 @@
 .cardMediaGrid {
+    background-color: rgb(255, 255, 255);
+    margin: 2px;
+    border-radius: 10px;
     width: 300px;
     height:450px;
 }
@@ -12,10 +15,8 @@
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);
-    }
-    .pokeCard {
-        
-    }
-    .cardContent {
-        margin-top: -20px;
-    }
+}
+.cardContent {  
+    margin-top: -10px;
+    background-color: rgb(255, 255, 255);
+}

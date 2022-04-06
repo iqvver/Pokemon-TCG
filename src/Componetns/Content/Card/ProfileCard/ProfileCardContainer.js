@@ -14,6 +14,7 @@ class ProfileCardContainer extends React.Component {
             this.props.setPokemonsProfile(response.data);
         });
     }
+    
     render() {
         return (
             <ProfilePokeCard {...this.props} pokemonsProfile={this.props.pokemonsProfile} />

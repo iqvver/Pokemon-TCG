@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import OTP from '../../../Common/OTP/OTP';
 
-const Login = (props) => {
+const Login = ({setIsAuth, isReg}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -19,12 +19,12 @@ const Login = (props) => {
     }
     let handleClick = () => {
         localStorage.isAuth = true;
-        props.setIsAuth(true);
+        setIsAuth(true);
     }
     let loginError = () => {
         alert('Логин или пароль не верны!')
     }
-    const myLog = [...props.isReg].map(l =>
+    const myLog = [...isReg].map(l =>
         <div>
             name:{l.username} <br />
             login(email):{l.login} <br />
@@ -76,7 +76,7 @@ const Login = (props) => {
                                 name="password" />
                             <ErrorMessage name="password" component="div" />
                             <br />
-                            <Button onClick={props.isReg.find(item =>
+                            <Button onClick={isReg.find(item =>
                                 item.login == values.email && item.password == values.password)
                                 ? handleOpen : loginError }>LogIn</Button>
                         </Form>

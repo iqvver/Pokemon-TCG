@@ -18,5 +18,16 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
+const RegistrationContainer = (props) => {
+    return (
+        <div>
+            <Registration
+                loginAndPassword={props.loginAndPassword}
+                addUser={props.addUser}
+                handleSubmit={props.handleSubmit} />
+        </div>
+    )
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Registration);
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationContainer);

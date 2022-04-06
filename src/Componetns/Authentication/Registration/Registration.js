@@ -3,16 +3,16 @@ import './Registration.css';
 import Button from '@mui/material/Button'
 import { Field, reduxForm } from 'redux-form';
 
-const Registration = (props) => {
-    let myLog = [...props.loginAndPassword].reverse().map(l =>
+const Registration = ({loginAndPassword, addUser}) => {
+    let myLog = [...loginAndPassword].reverse().map(l =>
         <div>
             name:{l.username} <br />
             login(email):{l.login} <br />
             password:{l.password}
         </div>);
     let addNewUser = (value) => {
-        if (value.newUserPass === value.newUserPass2) {
-            props.addUser(value.newUserName, value.newUserLogin, value.newUserPass);
+        if (value.newUserPass == value.newUserPass2) {
+            addUser(value.newUserName, value.newUserLogin, value.newUserPass);
             alert('Все ОК');
         }
         else if (value.newUserPass !== value.newUserPass2)
@@ -29,9 +29,9 @@ const Registration = (props) => {
     )
 }
 
-const MyUser = (props) => {
+const MyUser = ({handleSubmit}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className='registrationBlock'>
                 <h2>Enter the registration details.</h2>
                 <div className='inputWrapper'>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import * as axios from "axios"
 import { connect } from "react-redux";
-import { setTypeAC, setSubTypeAC, searchPokemonAC } from '../../redux/filter-reducer';
+import { setTypeAC, setSubTypeAC, searchPokemonAC } from '../../../redux/filter-reducer';
 import Filter from './Filter';
 import { compose } from 'redux';
-import { withAuthRedirect } from '../../Hoc/withAuthRedirect';
+import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
 
 class FilterContainer extends Component {
     render() {

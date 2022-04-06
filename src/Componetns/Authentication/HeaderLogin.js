@@ -2,17 +2,17 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FormControlLabel, Switch, } from '@material-ui/core';
 
-let HeaderLogin = (props) => {
+let HeaderLogin = ({setIsAuth, isUs}) => {
     let handleClick = () => {
         localStorage.isAuth = false;
-        props.setIsAuth(false);
+        setIsAuth(false);
     }
     return (
         <div>
             {localStorage.getItem('isAuth') == 'true' ?
-                props.setIsAuth(true) || <div>
-                    {props.isUs}
-                </div> : props.setIsAuth(false) || <div>offLne</div>}
+                setIsAuth(true) || <div>
+                    {isUs}
+                </div> : setIsAuth(false) || <div>offLne</div>}
 
             {localStorage.getItem('isAuth') == 'true'
                 ? <FormControlLabel  //переключение logIn, logAut
