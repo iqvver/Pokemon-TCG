@@ -4,9 +4,9 @@ import { Field, reduxForm } from 'redux-form';
 import { Input } from '../../../Common/FormsControls/FormsControls';
 import { Button, MenuItem } from '@mui/material';
 
-const searchPokemon = ({handleSubmit, typepoke, subtypepoke}) => {
+const searchPokemon = ({handleSubmit, typePokemon, subtypePokemon}) => {
     return (
-        <form className='filter-Block' onSubmit={handleSubmit}>
+        <form className='filter-Form' onSubmit={handleSubmit}>
             <Field        
                 name={"searchPokemonName"}
                 component={Input}
@@ -24,7 +24,7 @@ const searchPokemon = ({handleSubmit, typepoke, subtypepoke}) => {
                 placeholder={'Search for pokemon by type'}
                 helperText="Please select type"
                 select >
-                {typepoke.map(pokemonType =>
+                {typePokemon.map(pokemonType =>
                     <MenuItem key={pokemonType} value={pokemonType}>
                         {pokemonType}
                     </MenuItem>)}
@@ -38,7 +38,7 @@ const searchPokemon = ({handleSubmit, typepoke, subtypepoke}) => {
                 placeholder={'Search for pokemon by subtype'}
                 helperText="Please select subtype"
                 select >
-                {subtypepoke.map(pokemonSubtype =>
+                {subtypePokemon.map(pokemonSubtype =>
                     <MenuItem key={pokemonSubtype} value={pokemonSubtype}>
                         {pokemonSubtype}
                     </MenuItem>)}
@@ -56,10 +56,10 @@ const SearchPokemonForm = reduxForm({
 })(searchPokemon);
 
 
-const Filter = ({typepoke, searchPokemon, subtypepoke, newSearchPokemon}) => {
-    const typePokemonsArr = typepoke.filter(typePokemon =>
+const Filter = ({typePokemon, searchPokemon, subtypePokemon, newSearchPokemon}) => {
+    const typePokemonsArr = typePokemon.filter(typePokemon =>
         typePokemon !== searchPokemon.pokemonType);
-    const subtypePokemonsArr = subtypepoke.filter(subtypePokemon =>
+    const subtypePokemonsArr = subtypePokemon.filter(subtypePokemon =>
         subtypePokemon !== searchPokemon.pokemonSubtype);
 
     let searchNewPokemon = (value) => {
@@ -69,11 +69,11 @@ const Filter = ({typepoke, searchPokemon, subtypepoke, newSearchPokemon}) => {
         value.searchPokemonSubtype = '';
     }
     return (
-        <div className='filter-Container'>
+        <div className='filterCard'>
             <div className='filter-Block'>
                 <SearchPokemonForm onSubmit={searchNewPokemon}
-                    typepoke={typepoke}
-                    subtypepoke={subtypepoke}
+                    typePokemon={typePokemon}
+                    subtypePokemon={subtypePokemon}
                 />
             </div>
             <div className='card-Block'>

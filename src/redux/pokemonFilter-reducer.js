@@ -3,8 +3,8 @@ const SET_SUBTYPE_POKE = 'SET_SUBTYPE_POKE';
 const SEARCH_POKEMON = 'SEARCH_POKEMON';
 
 let initialState = {
-    typepoke: [],
-    subtypepoke: [],
+    typePokemon: [],
+    subtypePokemon: [],
     searchPokemon: {
         pokemonName: '',
         pokemonType: '',
@@ -15,10 +15,10 @@ let initialState = {
 const filterReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_TYPE_POKE: {
-            return { ...state, typepoke: action.typepoke }
+            return { ...state, typePokemon: action.typePokemon }
         }
         case SET_SUBTYPE_POKE: {
-            return { ...state, subtypepoke: action.subtypepoke }
+            return { ...state, subtypePokemon: action.subtypePokemon }
         }
 
         case SEARCH_POKEMON: {
@@ -40,8 +40,8 @@ const filterReducer = (state = initialState, action) => {
     }
 }
 
-export const setTypeAC = (typepoke) => ({ type: SET_TYPE_POKE, typepoke });
-export const setSubTypeAC = (subtypepoke) => ({ type: SET_SUBTYPE_POKE, subtypepoke });
+export const setTypeAC = (typePokemon) => ({ type: SET_TYPE_POKE, typePokemon });
+export const setSubTypeAC = (subtypePokemon) => ({ type: SET_SUBTYPE_POKE, subtypePokemon });
 export const searchPokemonAC = (searchPokemonName, searchPokemonType, searchPokemonSubtype) =>
     ({ type: SEARCH_POKEMON, searchPokemonName, searchPokemonType, searchPokemonSubtype });
 

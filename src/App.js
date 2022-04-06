@@ -7,7 +7,7 @@ import LoginContainer from './Componetns/Authentication/Login/LoginContainer';
 import HeaderContainer from './Componetns/Header/HeaderContainer';
 import RegistrationContainer from './Componetns/Authentication/Registration/RegistrationContainer'
 import FilterContainer from './Componetns/Content/Filter/FilterContainer';
-import ProfileCardContainer from './Componetns/Content/Card/ProfileCard/ProfileCardContainer';
+import ProfileCardContainer from './Componetns/Content/Card/ProfilePokemon/ProfileCardContainer';
 import NavBarButton from './Componetns/NavBar/NavBarButton';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         <Redirect from="/" to="/login" />
         <Route path='/home' render={() => <PokeCardContainer />} />
         <Route path='/login' render={() => <LoginContainer />} />
-        <Route path='/cards/:pokeId?' render={() => <ProfileCardContainer />} />
+        <Route path='/cards/:pokemonId?' render={() => <ProfileCardContainer />} />
         <Route path='/registration' render={() => <RegistrationContainer />} />
         <Route path='/filter' render={() => <FilterContainer />} />
       </div>

@@ -16,8 +16,8 @@ export const pokemonsAPI = {
             });
     }
 }
-export const profileCardAPI = {
-    getCard(pokeId) {
-        return instance.get(`cards/` + pokeId);
+export const profilePokemonAPI = {
+    getProfile(pokemonId) {
+        return instance.get(`cards/` + pokemonId);
     }
 }

@@ -1,4 +1,11 @@
-.filter-Container {
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+}
+.filterCard {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7,17 +14,16 @@
     width: auto;
     height: auto;
 }
-.filter-Block {
+.filter-Form {
     flex: 1;
     margin-top: 20px;
     padding: 10px;
     border-right: 1px solid rgba(117, 117, 117, 0.664);
 }
-.subtype-Block {
-    margin-top: 15px;
-}
-.button-Block {
-    margin-top: 15px;
+.filter-Block {
+    margin-top: 20px;
+    padding: 10px;
+    border-right: 1px solid rgba(117, 117, 117, 0.664);
 }
 .card-Block {
     flex: 5;
