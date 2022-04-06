@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { getPokemons } from '../../../redux/pokecard-reducer';
+import { getPokemons } from '../../../redux/pokemonCard-reducer';
 import LinearProgress from '@mui/material/LinearProgress';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
@@ -24,7 +24,7 @@ class pokeCardContainer extends React.Component {
     render() {
         return (<>
             {this.props.isFetching ? <LinearProgress /> : null}
-            <Grid container className='pagination-Block'>
+            <Grid container className='paginationContainer'>
                 <PaginatorUi
                     currentPage={this.props.currentPage}
                     onPageChanged={this.onPageChanged}
@@ -32,7 +32,7 @@ class pokeCardContainer extends React.Component {
                     pagesCount={this.props.pagesCount}
                     pageSize={this.props.pageSize} />
             </Grid>
-            <Grid container className="containerGrid">
+            <Grid container className='pokemonContainer'>
                 {this.props.pokemons.map(pokemonCard =>
                     <Pokemon pokemon={pokemonCard} />)
                 }

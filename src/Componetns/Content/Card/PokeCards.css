@@ -1,4 +1,4 @@
-.pagination-Block {
+.paginationContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,11 +6,18 @@
     height: auto;
     margin-top: 10px;
 }
-.containerGrid {
+.pokemonContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
+    width: auto;
+    height: auto;
+}
+.profilePokeCardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: auto;
     height: auto;
 }

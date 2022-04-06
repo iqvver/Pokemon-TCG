@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { setPokemonsProfile } from '../../../../redux/card-reducer'
+import { setPokemonsProfile } from '../../../../redux/pokemonProfile-reducer'
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../../../Hoc/withAuthRedirect';
 import { profileCardAPI } from '../../../../Api/Api';
 import ProfilePokeCard from './ProfilePokeCard';
+import { Grid } from '@mui/material';
+import '../PokeCards.css';
 
 class ProfileCardContainer extends React.Component {
     componentDidMount() {
@@ -14,10 +16,12 @@ class ProfileCardContainer extends React.Component {
             this.props.setPokemonsProfile(response.data);
         });
     }
-    
+
     render() {
         return (
-            <ProfilePokeCard {...this.props} pokemonsProfile={this.props.pokemonsProfile} />
+            <Grid container className='profilePokeCardContainer'>
+                <ProfilePokeCard {...this.props} pokemonsProfile={this.props.pokemonsProfile} />
+            </Grid>
         )
     }
 }

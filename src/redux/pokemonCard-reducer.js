@@ -13,7 +13,7 @@ let initialState = {
     isFetching: false,
 };
 
-const pokecardReducer = (state = initialState, action) => {
+const pokemonCardReducer = (state = initialState, action) => {
     switch (action.type) {
 
         case SET_POKE: {
@@ -52,4 +52,4 @@ export const getPokemons = (currentPage, pageSize) => {
     }
 }
 
-    export default pokecardReducer;
+    export default pokemonCardReducer;

@@ -3,7 +3,7 @@ const SET_POKEMONS_PROFILE = 'SET_POKEMONS_PROFILE';
 let initialState = {
     pokemonsProfile: null
 };
-const cardReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_POKEMONS_PROFILE: {
             return { ...state, pokemonsProfile: action.pokemonsProfile }
@@ -15,4 +15,4 @@ const cardReducer = (state = initialState, action) => {
 
 export const setPokemonsProfile = (pokemonsProfile) => ({ type: SET_POKEMONS_PROFILE, pokemonsProfile });
 
-export default cardReducer;
+export default profileReducer;

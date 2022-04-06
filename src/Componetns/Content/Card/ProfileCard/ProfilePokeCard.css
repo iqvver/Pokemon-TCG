@@ -1,11 +1,35 @@
-.pokeCard-Block {
-    margin-top: 10px;
+.pokeCard-Container {
+    background-color: rgb(255, 255, 255);
     display: flex;
+    margin-top: 10px;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+    width: auto;
+    height: auto;
 }
 .infoBlock {
-    margin-top: -15px;
+    flex: 1;
+    width: auto;
+    height: auto;
+    clear: both;
+}
+.imgBlock {
+    flex: 1;
+    margin-left: 10px;
+    max-width: 500px;
+    max-height: 700px; 
+    float: left;           
+}
+.imgBlock img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.buttonBlock {
+    padding: 0px; 
+    margin-top: -700px;
 }
 .general {
     border-radius: 5px;

@@ -1,15 +1,15 @@
 import { applyMiddleware, combineReducers, createStore, compose } from "redux"
-import pokecardReducer from "./pokecard-reducer";
-import cardReducer from "./card-reducer";
+import pokemonCardReducer from "./pokemonCard-reducer";
+import profileReducer from "./pokemonProfile-reducer";
 import authReducer from "./auth-reducer";
 import { reducer as formReducer } from 'redux-form';
 import thunkMiddleware from 'redux-thunk'
-import filterReducer from "./filter-reducer";
+import filterReducer from "./pokemonFilter-reducer";
 
 let reducers = combineReducers({
-    pokemonCardPage: pokecardReducer,
+    pokemonCardPage: pokemonCardReducer,
+    pokemonsProfilePage: profileReducer,
     filterPage: filterReducer,
-    pokemonsProfilePage: cardReducer,
     isAuth: authReducer,
     form: formReducer
 });
