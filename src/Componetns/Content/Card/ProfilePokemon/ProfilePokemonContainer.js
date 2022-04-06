@@ -4,11 +4,11 @@ import { getProfilePokemon } from '../../../../redux/pokemonProfile-reducer'
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../../../../Hoc/withAuthRedirect';
-import ProfilePokeCard from './ProfilePokeCard';
+import ProfilePokemon from './ProfilePokemon';
 import { Grid } from '@mui/material';
-import '../PokeCards.css';
+import '../PokemonContainer.css';
 
-class ProfileCardContainer extends React.Component {
+class ProfilePokemonContainer extends React.Component {
     componentDidMount() {
         let pokemonId = this.props.match.params.pokemonId;
         this.props.getProfilePokemon(pokemonId);
@@ -16,7 +16,7 @@ class ProfileCardContainer extends React.Component {
     render() {
         return (
             <Grid container className='profilePokeCardContainer'>
-                <ProfilePokeCard {...this.props} pokemonsProfile={this.props.pokemonsProfile} />
+                <ProfilePokemon {...this.props} pokemonsProfile={this.props.pokemonsProfile} />
             </Grid>
         )
     }
@@ -28,4 +28,4 @@ let mapStateToProps = (state) => ({
 
 export default compose(connect(mapStateToProps, { getProfilePokemon }),
     withRouter,
-    withAuthRedirect)(ProfileCardContainer);
+    withAuthRedirect)(ProfilePokemonContainer);

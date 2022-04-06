@@ -1,15 +1,15 @@
+import { Grid } from '@mui/material';
+import LinearProgress from '@mui/material/LinearProgress';
 import React from 'react';
 import { connect } from "react-redux";
-import { getPokemons } from '../../../redux/pokemonCard-reducer';
-import LinearProgress from '@mui/material/LinearProgress';
 import { compose } from 'redux';
-import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
-import { Grid } from '@mui/material';
-import './PokeCards.css';
 import PaginatorUi from '../../../Common/Paginator/PaginatorUi';
-import Pokemon from './Pokemon';
+import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
+import { getPokemons } from '../../../redux/pokemonCard-reducer';
+import Pokemon from './CardPokemon/Pokemon';
+import './PokemonContainer.css';
 
-class pokeCardContainer extends React.Component {
+class PokemonContainer extends React.Component {
     componentDidMount() {
         this.props.getPokemons(this.props.currentPage, this.props.pageSize);
     }
@@ -54,4 +54,4 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(connect(
-    mapStateToProps, { getPokemons }), withAuthRedirect)(pokeCardContainer);
+    mapStateToProps, { getPokemons }), withAuthRedirect)(PokemonContainer);
