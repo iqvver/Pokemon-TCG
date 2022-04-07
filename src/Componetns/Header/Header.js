@@ -4,21 +4,30 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 import HeaderLogin from '../Authentication/HeaderLogin';
 
-const Header = ({isAuth, isUs, setIsAuth}) => {
+// Header приложения
+const Header = ({ isAuth, isUs, setIsAuth }) => {
     return (
-        <div className='back'>
-            {/*<div className='logo'>
+        <div className='pageHeader'>
+            {/*  логотоп в шапке приложения
+            <div className='logotipe'>
                     <NavLink to={'/home'}><img src={pokelogo} /></NavLink>
     </div>*/}
-            <div className='header-text'>
+            {// текст в шапке приложения
+            }
+            <div className='pageHeaderText'>
                 <NavLink to={'/home'}>
                     <h1>
                         Ultra Super Pokemon 5G Pro
                     </h1>
                 </NavLink>
             </div>
-            <div className='nav-bar'>
-                <div className='login-block'>
+            {// кнопки навигации
+            }
+            <div className='navBar'>
+                {// крновка выхода из приложения
+                    // передача нужных данных
+                }
+                <div className='loginBlock'>
                     <HeaderLogin isAuth={isAuth}
                         isUs={isUs}
                         setIsAuth={setIsAuth} />

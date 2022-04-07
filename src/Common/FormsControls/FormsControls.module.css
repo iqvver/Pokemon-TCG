@@ -20,5 +20,6 @@
     width: 400px;
 }
 .formControl input {
-
+    display: flex;
+    flex: auto;
 }

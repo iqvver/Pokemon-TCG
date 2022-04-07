@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import './OTP.css';
 
+// форма с генерацией случайного 4х значного кода и проверкой ввода
 export default class OTPgen extends Component {
 
     constructor(props) {
@@ -11,6 +12,8 @@ export default class OTPgen extends Component {
         this.handleGenerate = this.handleGenerate.bind(this);
         this.state = { random: '' };
     }
+
+    // генератор случайного кода
     handleGenerate() {
         var digits = '0123456789';
         let OTP = '';
@@ -21,7 +24,8 @@ export default class OTPgen extends Component {
     }
 
     render() {
-        return (
+        return ( 
+            // форма ввода и проверка
             <div align='center'>
                 <div>
                     <Button onClick={this.handleGenerate.bind(this)}>Получить код</Button>

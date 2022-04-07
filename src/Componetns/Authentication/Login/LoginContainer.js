@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { setIsAuthAC } from '../../../redux/auth-reducer';
 import Login from './Login';
 
+// получение данных из state
 let mapStateToProps = (state) => {
     return {
         isAuth: state.isAuth.isAuth,
@@ -10,6 +11,7 @@ let mapStateToProps = (state) => {
         isUs: state.isAuth.isUs
     }
 }
+// отправка данных в state
 let mapDispatchToProps = (dispatch) => {
     return {
         setIsAuth: (isAuth) => {
@@ -17,6 +19,8 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
+// контейнер со страницей входа в приложение
+// передача нужных переменных
 const LoginContainer = (props) => {
     return (
         <div>

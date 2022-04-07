@@ -1,17 +1,17 @@
-.cardMediaGrid {
+.pokemonCard {
     background-color: rgb(255, 255, 255);
     margin: 2px;
     border-radius: 10px;
     width: 300px;
     height:450px;
 }
-.cardMediaGrid img {
+.pokemonCard img {
     padding: 20px;
     -moz-transition: all 1s ease-out;
     -o-transition: all 1s ease-out;
     -webkit-transition: all 1s ease-out;
 }
-.cardMediaGrid img:hover{
+.pokemonCard img:hover{
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);

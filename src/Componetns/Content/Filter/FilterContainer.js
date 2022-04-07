@@ -7,7 +7,10 @@ import { compose } from 'redux';
 import { withAuthRedirect } from '../../../Hoc/withAuthRedirect';
 import { Grid } from '@mui/material';
 
+// контейнет со всеми типами и подтипами покемонов
+// контейнер с фильтрацией и пагинацией покемонов по типам и подтипам 
 class FilterContainer extends Component {
+    // получение данных из API
     render() {
         if (this.props.typePokemon.length === 0) {
             axios.get("https://api.pokemontcg.io/v2/types").then(type => {
@@ -20,7 +23,9 @@ class FilterContainer extends Component {
             });
         }
         return (
-            <Grid container className='filterContainer'>
+            // контейнер со отфильтрованной страницей карточек покемонов и пагинотор
+            // передача нужных переменных
+            <Grid container className='filterContainer' xs={2} xs={12}>
                 <Filter
                     typePokemon={this.props.typePokemon}
                     subtypePokemon={this.props.subtypePokemon}
@@ -35,12 +40,14 @@ class FilterContainer extends Component {
     }
 }
 
+// получение данных из state
 let mapStateToProps = (state) => ({
     typePokemon: state.filterPage.typePokemon,
     subtypePokemon: state.filterPage.subtypePokemon,
     searchPokemon: state.filterPage.searchPokemon,
 
 });
+// отправка данных в state
 let mapDispatchToProps = (dispatch) => {
     return {
         setTypePoke: (typePokemon) => {

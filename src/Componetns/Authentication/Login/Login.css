@@ -3,7 +3,7 @@
     width: 400px;
     margin: 0 auto;
 }
-.loginBlock {
+.loginFormBlock {
     height: 400px;
     width: 350px;
     background-color: rgba(70, 63, 90, 0.356);
@@ -11,7 +11,7 @@
     box-shadow: 0 0 5px  black;
     margin: 0 auto;
 }
-.loginBlock input {
+.loginFormBlock input {
     width: 200px;
     height: 30px;
     margin-top: 10px;

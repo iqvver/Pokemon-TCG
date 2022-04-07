@@ -4,22 +4,30 @@ import { Divider } from '@material-ui/core';
 import LinearProgress from '@mui/material/LinearProgress';
 import Button from '@mui/material/Button';
 
+// страница с информацией о выбранном покемоне
 const ProfilePokemon = ({ pokemonsProfile, ...props }) => {
     if (!pokemonsProfile) {
         return <LinearProgress />
     }
     return (
-        <div className='pokeCard-Container'>
+        <div className='pokemonCardContainer'>
+            {
+                // кнопка назад (back)
+            }
             <div className='buttonBlock'>
                 <Button variant="text" onClick={() => props.history.goBack()}>Back</Button>
             </div>
+            {
+                // информация о покемоне по категориям
+            }
             <div className='infoBlock'>
                 <div><h2>{pokemonsProfile.data.name}</h2></div>
                 <div className='general'>
                     <h4>General informations</h4>
                     <Divider />
                     <div>Set identifier  {pokemonsProfile.data.number}</div>
-                    <div>{pokemonsProfile.data.rarity}  {pokemonsProfile.data.supertype}</div>
+                    <div>{pokemonsProfile.data.rarity}
+                        {pokemonsProfile.data.supertype}</div>
                     <div>Illustrated by  {pokemonsProfile.data.artist}</div>
                 </div>
                 <div className='informations'>
@@ -44,6 +52,9 @@ const ProfilePokemon = ({ pokemonsProfile, ...props }) => {
                     {pokemonsProfile.data.retreatCost}
                 </div>
             </div>
+            {
+                // картинка
+            }
             <div className='imgBlock'>
                 <img src={pokemonsProfile.data.images.large} />
             </div>

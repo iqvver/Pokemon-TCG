@@ -2,7 +2,8 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FormControlLabel, Switch, } from '@material-ui/core';
 
-let HeaderLogin = ({setIsAuth, isUs}) => {
+// кнопка выхожа из приложения шапке приложения
+let HeaderLogin = ({ setIsAuth, isUs }) => {
     let handleClick = () => {
         localStorage.isAuth = false;
         setIsAuth(false);
@@ -25,7 +26,7 @@ let HeaderLogin = ({setIsAuth, isUs}) => {
                     label={'Выйти'} />
                 : <FormControlLabel disabled
                     control={
-                        <Switch /> }
+                        <Switch />}
                     label={<NavLink to={'/login'}></NavLink>} />}
         </div>
     )

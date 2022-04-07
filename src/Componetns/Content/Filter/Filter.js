@@ -4,9 +4,10 @@ import { Field, reduxForm } from 'redux-form';
 import { Input } from '../../../Common/FormsControls/FormsControls';
 import { Button, MenuItem } from '@mui/material';
 
+// форма для фильтрации и поиска карточки покемона
 const searchPokemon = ({handleSubmit, typePokemon, subtypePokemon}) => {
     return (
-        <form className='filter-Form' onSubmit={handleSubmit}>
+        <form className='filterForm' onSubmit={handleSubmit}>
             <Field        
                 name={"searchPokemonName"}
                 component={Input}
@@ -55,7 +56,7 @@ const SearchPokemonForm = reduxForm({
     form: 'pokemonSearchForm',
 })(searchPokemon);
 
-
+// страница с формой фильтрации и вывода нужных карточек покемонов
 const Filter = ({typePokemon, searchPokemon, subtypePokemon, newSearchPokemon}) => {
     const typePokemonsArr = typePokemon.filter(typePokemon =>
         typePokemon !== searchPokemon.pokemonType);
@@ -70,13 +71,13 @@ const Filter = ({typePokemon, searchPokemon, subtypePokemon, newSearchPokemon}) 
     }
     return (
         <div className='filterCard'>
-            <div className='filter-Block'>
+            <div className='filterBlock'>
                 <SearchPokemonForm onSubmit={searchNewPokemon}
                     typePokemon={typePokemon}
                     subtypePokemon={subtypePokemon}
                 />
             </div>
-            <div className='card-Block'>
+            <div className='cardBlock'>
                 name: {searchPokemon.pokemonName} <br /> <br />
                 {typePokemonsArr} <br /> <br />
                 type: {searchPokemon.pokemonType} <br /> <br />

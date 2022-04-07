@@ -6,6 +6,7 @@ import { reducer as formReducer } from 'redux-form';
 import thunkMiddleware from 'redux-thunk'
 import filterReducer from "./pokemonFilter-reducer";
 
+// комбайн со всеми редьюсерами
 let reducers = combineReducers({
     pokemonCardPage: pokemonCardReducer,
     pokemonsProfilePage: profileReducer,
@@ -14,6 +15,7 @@ let reducers = combineReducers({
     form: formReducer
 });
 
+//передача в стор
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 let store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)));
 

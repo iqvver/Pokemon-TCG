@@ -1,13 +1,16 @@
 import { profilePokemonAPI } from "../Api/Api";
 
-const SET_POKEMONS_PROFILE = 'SET_POKEMONS_PROFILE';
+const SET_POKEMONS_PROFILE = 'SET_POKEMONS_PROFILE'; // перенная для получения профиля покемона
 
+// иноциализация переменных
 let initialState = {
-    pokemonsProfile: null
+    pokemonsProfile: null // переменная профиля 
 };
+// редьюсер профиля покемона
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_POKEMONS_PROFILE: {
+            // получение профиля покемона
             return { ...state, pokemonsProfile: action.pokemonsProfile }
         }
         default:
@@ -15,8 +18,11 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
+// экшен для получение профиля покемона
 export const setProfilePokemon = (pokemonsProfile) => ({ type: SET_POKEMONS_PROFILE, pokemonsProfile });
 
+// получение, обработка и отправка профиля покемона
+// ассинхронный экшен
 export const getProfilePokemon = (pokemonId) => async (dispatch) => {
     let response = await profilePokemonAPI.getProfile(pokemonId);
     dispatch(setProfilePokemon(response.data));

@@ -3,13 +3,16 @@ import './Registration.css';
 import Button from '@mui/material/Button'
 import { Field, reduxForm } from 'redux-form';
 
-const Registration = ({loginAndPassword, addUser}) => {
+// страница с формой резистрации в приложении (отправка введеных данных в массив)
+const Registration = ({ loginAndPassword, addUser }) => {
+    // массив зарегистрированных пользователей
     let myLog = [...loginAndPassword].reverse().map(l =>
         <div>
             name:{l.username} <br />
             login(email):{l.login} <br />
             password:{l.password}
         </div>);
+    // функция добавления нового пользователя
     let addNewUser = (value) => {
         if (value.newUserPass == value.newUserPass2) {
             addUser(value.newUserName, value.newUserLogin, value.newUserPass);
@@ -19,6 +22,7 @@ const Registration = ({loginAndPassword, addUser}) => {
             alert('Пароли не совпадают');
     }
     return (
+        // переключение между входом и регистрацией
         <div className='registrationForm'>
             <Button href="#Login">Sign In</Button>
             <Button href="#Registration">Registration</Button>
@@ -28,8 +32,8 @@ const Registration = ({loginAndPassword, addUser}) => {
         </div>
     )
 }
-
-const MyUser = ({handleSubmit}) => {
+// форма регистрации (отправки введеных данных в массив)
+const MyUser = ({ handleSubmit }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className='registrationBlock'>

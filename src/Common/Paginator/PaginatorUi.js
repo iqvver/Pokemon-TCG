@@ -2,14 +2,17 @@ import * as React from 'react'
 import usePagination from '@mui/material/usePagination';
 import Button from '@mui/material/Button';
 
+// пагинатор с ипользованием MUI 
 let PaginatorUi = ({ onPageChanged, pageSize, totalCount, currentPage }) => {
-  let pagesCount = Math.ceil(totalCount / pageSize); //вычисляем и рисуем все страницы
+  // вычисляем и рисуем все страницы
+  let pagesCount = Math.ceil(totalCount / pageSize); 
   let { items } = usePagination({
-    count: pagesCount,
-    selected: currentPage
+    count: pagesCount, // общее число страниц
+    selected: currentPage // выбранная страница
   });
 
-  return ( //поведение пагинатора
+  return (
+    //поведение пагинатора
     <div>
       {items.map(({ page, type, selected, ...item }, index) => {
         let children = null;

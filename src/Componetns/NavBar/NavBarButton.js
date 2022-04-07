@@ -1,9 +1,10 @@
 import * as React from 'react';
 import './NavBarButton.css';
 
+// конопки навигации 
 const NavBarButton = () => {
     return (
-        <div className='nav-block'>
+        <div className='navBlock'>
             <a href='/home'>
                 <span>All Pokemons</span>
                 <span>All Pokemons</span>

@@ -8,15 +8,19 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import OTP from '../../../Common/OTP/OTP';
 
+// страница входа в приложение
 const Login = ({setIsAuth, isReg}) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
     }
+
+    // вход в приложение
     const handleClose = () => setOpen(false);
     if (localStorage.getItem('isAuth') === 'true') {
         return <Redirect to={'/home'} />
     }
+
     let handleClick = () => {
         localStorage.isAuth = true;
         setIsAuth(true);
@@ -24,6 +28,8 @@ const Login = ({setIsAuth, isReg}) => {
     let loginError = () => {
         alert('Логин или пароль не верны!')
     }
+
+    // массив зарегестрированных пользователей
     const myLog = [...isReg].map(l =>
         <div>
             name:{l.username} <br />
@@ -32,6 +38,7 @@ const Login = ({setIsAuth, isReg}) => {
         </div>);
 
     return (
+        // форма входа в приложение
         <div className='loginForm'>
             <Modal
                 open={open}
@@ -46,7 +53,7 @@ const Login = ({setIsAuth, isReg}) => {
             </Modal>
             <Button href="#Login">Sign In</Button>
             <Button href="#Registration">Registration</Button>
-            <div className='loginBlock'>
+            <div className='loginFormBlock'>
                 <h2>Please enter your login(email) and password!</h2>
                 <Formik
                     initialValues={{ email: '', password: '' }}
