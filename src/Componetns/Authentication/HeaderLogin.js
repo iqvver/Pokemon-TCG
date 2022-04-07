@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FormControlLabel, Switch, } from '@material-ui/core';
 
 // кнопка выхожа из приложения шапке приложения
-let HeaderLogin = ({ setIsAuth, isUs }) => {
+let HeaderLogin = ({ setIsAuth, isUser }) => {
     let handleClick = () => {
         localStorage.isAuth = false;
         setIsAuth(false);
@@ -12,7 +12,7 @@ let HeaderLogin = ({ setIsAuth, isUs }) => {
         <div>
             {localStorage.getItem('isAuth') == 'true' ?
                 setIsAuth(true) || <div>
-                    {isUs}
+                    {isUser}
                 </div> : setIsAuth(false) || <div>offLne</div>}
 
             {localStorage.getItem('isAuth') == 'true'

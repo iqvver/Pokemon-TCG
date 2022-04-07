@@ -6,7 +6,6 @@ import './OTP.css';
 
 // форма с генерацией случайного 4х значного кода и проверкой ввода
 export default class OTPgen extends Component {
-
     constructor(props) {
         super(props);
         this.handleGenerate = this.handleGenerate.bind(this);
@@ -24,7 +23,7 @@ export default class OTPgen extends Component {
     }
 
     render() {
-        return ( 
+        return (
             // форма ввода и проверка
             <div align='center'>
                 <div>
@@ -46,7 +45,9 @@ export default class OTPgen extends Component {
                             <Field className='otpForm'
                                 type="number"
                                 name="kode"
-                                maxlength="4" />
+                                maxlength="4"
+                            //autoFocus 
+                            />
                             <ErrorMessage name="kode" component="div" />
                             <br />
                             {values.kode

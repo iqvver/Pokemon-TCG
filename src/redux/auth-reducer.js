@@ -1,6 +1,6 @@
 const IS_AUTH = 'IS_AUTH'; // переменная входа/выхода из приложения
 const ADD_USER = 'ADD_USER'; // переменная нового пользователя (регистрация)
-const IS_US = 'IS_US'; // пользователь
+const IS_USER = 'IS_USER'; // пользователь
 
 // иноциализация переменных
 let initialState = {
@@ -11,7 +11,7 @@ let initialState = {
         { id: 1, username: 'smart', login: 'smart@gamil.com', password: 1488 },
     ],
     // пользователь
-    isUs: 'onLine',
+    isUser: 'onLine',
 
 };
 // редьюсер авторизаци/регистрации
@@ -21,9 +21,11 @@ const authReducer = (state = initialState, action) => {
             // вход в приложениеб переключение true/false
             return { ...state, isAuth: action.isAuth }
         }
-        case IS_US: {
+        case IS_USER: {
             // пользователь за которого выполнен вход
-            return { ...state, isUs: action.isUs }
+            return { ...state, isUser
+        : action.isUser
+     }
         }
         case ADD_USER: {
             // добавление в массив нового пользователя
@@ -49,7 +51,7 @@ const authReducer = (state = initialState, action) => {
 // экшен для входа/выхода
 export const setIsAuthAC = (isAuth) => ({ type: IS_AUTH, isAuth })
 // экшен для пользователя
-export const setIsUsAC = (isUs) => ({ type: IS_US, isUs})
+export const setIsUseAC = (isUser) => ({ type: IS_USER, isUser})
 // экшен для добавления нового пльзователя
 export const newUserAC = (newUserName, newUserLogin, newUserPass) => ({ type: ADD_USER, newUserName, newUserLogin, newUserPass })
 

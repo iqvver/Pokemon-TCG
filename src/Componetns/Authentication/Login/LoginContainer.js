@@ -8,7 +8,7 @@ let mapStateToProps = (state) => {
     return {
         isAuth: state.isAuth.isAuth,
         isReg: state.isAuth.loginAndPassword,
-        isUs: state.isAuth.isUs
+        isUser: state.isAuth.isUser
     }
 }
 // отправка данных в state
@@ -28,7 +28,7 @@ const LoginContainer = (props) => {
                 isAuth={props.isAuth}
                 setIsAuth={props.setIsAuth}
                 isReg={props.isReg}
-                isUs={props.isUs} />
+                isUser={props.isUser} />
         </div>
     )
 }

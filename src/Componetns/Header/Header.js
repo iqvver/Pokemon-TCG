@@ -5,7 +5,7 @@ import './Header.css';
 import HeaderLogin from '../Authentication/HeaderLogin';
 
 // Header приложения
-const Header = ({ isAuth, isUs, setIsAuth }) => {
+const Header = ({ isAuth, isUser, setIsAuth }) => {
     return (
         <div className='pageHeader'>
             {/*  логотоп в шапке приложения
@@ -29,7 +29,7 @@ const Header = ({ isAuth, isUs, setIsAuth }) => {
                 }
                 <div className='loginBlock'>
                     <HeaderLogin isAuth={isAuth}
-                        isUs={isUs}
+                        isUser={isUser}
                         setIsAuth={setIsAuth} />
                 </div>
             </div>

@@ -11,7 +11,7 @@ class HeaderContainer extends Component {
             <>
                 <Header setIsAuth={this.props.setIsAuth}
                     isAuth={this.props.isAuth}
-                    isUs={this.props.isUs} />
+                    isUser={this.props.isUser} />
             </>
         )
     }
@@ -21,7 +21,7 @@ class HeaderContainer extends Component {
 let mapStateToProps = (state) => {
     return {
         isAuth: state.isAuth.isAuth,
-        isUs: state.isAuth.isUs
+        isUser: state.isAuth.isUser
     }
 }
 // отправка данных в state

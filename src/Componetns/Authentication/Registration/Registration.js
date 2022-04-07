@@ -20,6 +20,7 @@ const Registration = ({ loginAndPassword, addUser }) => {
         }
         else if (value.newUserPass !== value.newUserPass2)
             alert('Пароли не совпадают');
+            debugger;
     }
     return (
         // переключение между входом и регистрацией
@@ -51,7 +52,7 @@ const MyUser = ({ handleSubmit }) => {
                         component='input'
                         placeholder='Your email' />
                     <br />
-                    <input className='inputPass'
+                    <Field className='inputPass'
                         name='newUserPass'
                         component='input'
                         type="password"
