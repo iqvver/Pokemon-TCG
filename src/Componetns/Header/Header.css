@@ -20,11 +20,8 @@
     width: auto;
     height: 60px;  
 }
-.loginBlock {
-    margin-left: 5px;
-    float: right;
-    width: auto;
-    height: 60px;  
+.loginBlock { 
+    float: right;   
 }
 .loginBlock a {
     text-decoration: none;

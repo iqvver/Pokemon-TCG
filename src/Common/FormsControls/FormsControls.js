@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./FormsControls.module.css";
 import { Box, TextField } from '@material-ui/core';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import { Field } from "redux-form";
+import { autofill, Field } from "redux-form";
 
 // работа с базовыми формами ввода
 const FormControl = ({ input, meta, child, ...props }) => {
@@ -28,7 +28,7 @@ export const Textarea = (props) => {
 export const Input = (props) => {
     const { input, meta, child, ...restProps } = props;
     // дизайн инпута
-    return <FormControl {...props}><TextField style={{ minWidth: 250 }} {...input} {...restProps} /></FormControl>
+    return <FormControl {...props}><TextField style={{  }} {...input} {...restProps} /></FormControl>
 }
 export const createField = (variant, placeholder, name, validators, component, props = {}, text = "") => (
     <div>

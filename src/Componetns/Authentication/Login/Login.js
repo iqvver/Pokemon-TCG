@@ -45,7 +45,7 @@ const Login = ({setIsAuth, isReg}) => {
                 onClose={handleClose}>
                 <Box className='otpBlock'>
                     <Typography variant="h6" align='center'>
-                        Введите код для того, что-бы войти?
+                    Enter the code to log in!
                     </Typography>
                     <OTP handleClick={handleClick}
                         onClose={handleClose} />

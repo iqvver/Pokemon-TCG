@@ -5,12 +5,13 @@ import { Input } from '../../../Common/FormsControls/FormsControls';
 import { Button, MenuItem } from '@mui/material';
 
 // форма для фильтрации и поиска карточки покемона
-const searchPokemon = ({handleSubmit, typePokemon, subtypePokemon}) => {
+const searchPokemon = ({ handleSubmit, typePokemon, subtypePokemon }) => {
     return (
         <form className='filterForm' onSubmit={handleSubmit}>
-            <Field        
+            <Field
                 name={"searchPokemonName"}
                 component={Input}
+                fullWidth
                 type={'text'}
                 variant={'standard'}
                 label={'Search for pokemon by name'}
@@ -19,6 +20,7 @@ const searchPokemon = ({handleSubmit, typePokemon, subtypePokemon}) => {
             <Field
                 name={"searchPokemonType"}
                 component={Input}
+                fullWidth
                 type={'text'}
                 variant={'standard'}
                 label={'Search for pokemon by type'}
@@ -33,6 +35,7 @@ const searchPokemon = ({handleSubmit, typePokemon, subtypePokemon}) => {
             <Field
                 name={"searchPokemonSubtype"}
                 component={Input}
+                fullWidth
                 type={'text'}
                 variant={'standard'}
                 label={'Search for pokemon by subtype'}
@@ -46,7 +49,7 @@ const searchPokemon = ({handleSubmit, typePokemon, subtypePokemon}) => {
             </Field>
             <br />
             <div>
-                <Button type="submit">Получить</Button>
+                <Button type="submit">Search</Button>
             </div>
         </form>
     )
@@ -57,7 +60,7 @@ const SearchPokemonForm = reduxForm({
 })(searchPokemon);
 
 // страница с формой фильтрации и вывода нужных карточек покемонов
-const Filter = ({typePokemon, searchPokemon, subtypePokemon, newSearchPokemon}) => {
+const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon }) => {
     const typePokemonsArr = typePokemon.filter(typePokemon =>
         typePokemon !== searchPokemon.pokemonType);
     const subtypePokemonsArr = subtypePokemon.filter(subtypePokemon =>
@@ -70,21 +73,26 @@ const Filter = ({typePokemon, searchPokemon, subtypePokemon, newSearchPokemon}) 
         value.searchPokemonSubtype = '';
     }
     return (
-        <div className='filterCard'>
-            <div className='filterBlock'>
-                <SearchPokemonForm onSubmit={searchNewPokemon}
-                    typePokemon={typePokemon}
-                    subtypePokemon={subtypePokemon}
-                />
+        <>
+            <h4>Search Parameters:</h4>
+            <div className='searchParameters'>
+                <span className='searchName'>name: {searchPokemon.pokemonName}</span>
+                <span className='searchType'>type: {searchPokemon.pokemonType}</span>
+                <span className='searchSubtype'>subtype: {searchPokemon.pokemonSubtype}</span>
             </div>
-            <div className='cardBlock'>
-                name: {searchPokemon.pokemonName} <br /> <br />
-                {typePokemonsArr} <br /> <br />
-                type: {searchPokemon.pokemonType} <br /> <br />
-                {subtypePokemonsArr} <br /> <br />
-                subtype: {searchPokemon.pokemonSubtype} <br /> <br />
+            <div className='filterCard'>
+                <div className='filterBlock'>
+                    <SearchPokemonForm onSubmit={searchNewPokemon}
+                        typePokemon={typePokemon}
+                        subtypePokemon={subtypePokemon}
+                    />
+                </div>
+                <div className='cardBlock'>
+                    {typePokemonsArr} <br /> <br />
+                    {subtypePokemonsArr} <br /> <br />
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

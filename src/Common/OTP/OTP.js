@@ -27,8 +27,8 @@ export default class OTPgen extends Component {
             // форма ввода и проверка
             <div align='center'>
                 <div>
-                    <Button onClick={this.handleGenerate.bind(this)}>Получить код</Button>
-                    <Box>Код: {this.state.random}</Box>
+                    <Button onClick={this.handleGenerate.bind(this)}>Get the code</Button>
+                    <Box>CODE: {this.state.random}</Box>
                 </div>
                 <Formik
                     initialValues={{ kode: '' }}

@@ -1,28 +1,39 @@
 .filterContainer {
     justify-content: center;
     align-items: center;
-    width: auto;
-    height: auto;
+    width: 100%;
 }
 .filterForm {
-    margin-top: 20px;
-    padding: 10px;
-    
+    margin-top: 20px; 
+}
+.searchParameters{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+.searchName {
+    flex: 1;
+}
+.searchType {
+    flex: 1;
+}
+.searchSubtype {
+    flex: 1;
 }
 .filterCard {
+    justify-content: center;
+    align-items: center;
     width:100%; 
     margin: 0 auto; 
 }
 .filterBlock {
+    background-color: violet;
     float:left;
-    width: 30%;
-    max-width: 300px; 
-    min-width: 250px;
+    margin-left: 0px;
+    width: 250px;
+    min-width: 40px;
 }
 .cardBlock {
-    float: left;
-    justify-content: center;
-    align-items: center;
-	max-width: 70%;
-    min-width: 250px;
+    background-color: yellowgreen;
+	width: 100%;
 }

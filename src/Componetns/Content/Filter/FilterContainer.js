@@ -25,7 +25,7 @@ class FilterContainer extends Component {
         return (
             // контейнер со отфильтрованной страницей карточек покемонов и пагинотор
             // передача нужных переменных
-            <Grid container className='filterContainer' xs={2} xs={12}>
+            <Grid container className='filterContainer' >
                 <Filter
                     typePokemon={this.props.typePokemon}
                     subtypePokemon={this.props.subtypePokemon}

@@ -23,7 +23,7 @@ let HeaderLogin = ({ setIsAuth, isUser }) => {
                             onChange={handleClick}
                             aria-label="login switch"
                         />}
-                    label={'Выйти'} />
+                    label={'LogOut'} />
                 : <FormControlLabel disabled
                     control={
                         <Switch />}
