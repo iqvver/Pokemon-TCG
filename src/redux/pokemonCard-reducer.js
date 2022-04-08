@@ -54,10 +54,10 @@ export const setIsFetchingAC = (isFetching) => ({ type: IS_FETCHING, isFetching 
 
 // получение, обработка и отправка карточек покемонов
 // ассинхронный экшен
-export const getPokemons = (currentPage, pageSize) => {
+export const getPokemons = (currentPage, pageSize, pokemons) => {
     return async (dispatch) => {
         dispatch(setIsFetchingAC(true));
-        let card = await pokemonsAPI.getPokemons(currentPage, pageSize);
+        let card = await pokemonsAPI.getPokemons(currentPage, pageSize, pokemons);
         dispatch(setIsFetchingAC(false));
         dispatch(setPokemonsAC(card.data));
         dispatch(setPokemonsTotalCountAC(card.totalCount));
@@ -65,3 +65,4 @@ export const getPokemons = (currentPage, pageSize) => {
 }
 
 export default pokemonCardReducer;
+

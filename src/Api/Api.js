@@ -24,3 +24,19 @@ export const profilePokemonAPI = {
         return instance.get(`cards/` + pokemonId);
     }
 }
+// получение массива со всеми типами покемонов
+export const typePokemonAPI = {
+    getTypePokemon() {
+        return instance.get(`types`).then(type => {
+            return type.data;
+        })
+    }
+}
+// получение массива со всеми подтипами покемонов
+export const subtypePokemonAPI = {
+    getSubtypePokemon() {
+        return instance.get(`subtypes`).then(subtype => {
+            return subtype.data;
+        })
+    }
+}

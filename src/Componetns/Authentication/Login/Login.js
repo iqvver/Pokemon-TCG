@@ -9,7 +9,7 @@ import Modal from '@mui/material/Modal';
 import OTP from '../../../Common/OTP/OTP';
 
 // страница входа в приложение
-const Login = ({setIsAuth, isReg}) => {
+const Login = ({ setIsAuth, isReg, isUser }) => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -45,7 +45,7 @@ const Login = ({setIsAuth, isReg}) => {
                 onClose={handleClose}>
                 <Box className='otpBlock'>
                     <Typography variant="h6" align='center'>
-                    Enter the code to log in!
+                        Enter the code to log in!
                     </Typography>
                     <OTP handleClick={handleClick}
                         onClose={handleClose} />
@@ -85,7 +85,7 @@ const Login = ({setIsAuth, isReg}) => {
                             <br />
                             <Button onClick={isReg.find(item =>
                                 item.login == values.email && item.password == values.password)
-                                ? handleOpen : loginError }>LogIn</Button>
+                                ? handleOpen : loginError}>LogIn</Button>
                         </Form>
                     )}
                 </Formik>
@@ -93,7 +93,7 @@ const Login = ({setIsAuth, isReg}) => {
                     {myLog}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

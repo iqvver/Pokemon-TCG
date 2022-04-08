@@ -76,9 +76,9 @@ const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon }
         <>
             <h4>Search Parameters:</h4>
             <div className='searchParameters'>
-                <span className='searchName'>name: {searchPokemon.pokemonName}</span>
-                <span className='searchType'>type: {searchPokemon.pokemonType}</span>
-                <span className='searchSubtype'>subtype: {searchPokemon.pokemonSubtype}</span>
+                <span className='searchName'>NAME: {searchPokemon.pokemonName}</span>
+                <span className='searchType'>TYPE: {searchPokemon.pokemonType}</span>
+                <span className='searchSubtype'>SUBTYPE: {searchPokemon.pokemonSubtype}</span>
             </div>
             <div className='filterCard'>
                 <div className='filterBlock'>
