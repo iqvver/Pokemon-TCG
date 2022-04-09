@@ -1,18 +1,19 @@
 import * as React from 'react';
+import { NavLink } from 'react-router-dom';
 import './NavBarButton.css';
 
 // конопки навигации 
 const NavBarButton = () => {
     return (
         <div className='navBlock'>
-            <a href='/home'>
+            <NavLink to={'/home'}>
                 <span>All Pokemons</span>
                 <span>All Pokemons</span>
-            </a>
-            <a href='/home#/filter'>
+            </NavLink>
+            <NavLink to={'/filter'}>
                 <span>Filter out Pokemon</span>
                 <span>Filter out Pokemon</span>
-            </a>
+            </NavLink>
         </div>
     )
 }

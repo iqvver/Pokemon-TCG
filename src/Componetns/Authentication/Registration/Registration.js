@@ -2,6 +2,7 @@ import * as React from 'react';
 import './Registration.css';
 import Button from '@mui/material/Button'
 import { Field, reduxForm } from 'redux-form';
+import { NavLink } from 'react-router-dom';
 
 // страница с формой резистрации в приложении (отправка введеных данных в массив)
 const Registration = ({ loginAndPassword, addUser }) => {
@@ -20,13 +21,16 @@ const Registration = ({ loginAndPassword, addUser }) => {
         }
         else if (value.newUserPass !== value.newUserPass2)
             alert('Пароли не совпадают');
-            debugger;
     }
     return (
         // переключение между входом и регистрацией
         <div className='registrationForm'>
-            <Button href="#Login">Sign In</Button>
-            <Button href="#Registration">Registration</Button>
+            <NavLink to={'/login'}>
+                <Button>Sign In</Button>
+            </NavLink>
+            <NavLink to={'/registration'}>
+                <Button>Registration</Button>
+            </NavLink>
             <div>
                 <AddUserFormRedux onSubmit={addNewUser} />
             </div>

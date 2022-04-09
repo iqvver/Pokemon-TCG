@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import OTP from '../../../Common/OTP/OTP';
+import { NavLink } from 'react-router-dom';
 
 // страница входа в приложение
 const Login = ({ setIsAuth, isReg, isUser }) => {
@@ -51,8 +52,12 @@ const Login = ({ setIsAuth, isReg, isUser }) => {
                         onClose={handleClose} />
                 </Box>
             </Modal>
-            <Button href="#Login">Sign In</Button>
-            <Button href="#Registration">Registration</Button>
+            <NavLink to={'/login'}>
+                <Button>Sign In</Button>
+            </NavLink>
+            <NavLink to={'/registration'}>
+                <Button>Registration</Button>
+            </NavLink>
             <div className='loginFormBlock'>
                 <h2>Please enter your login(email) and password!</h2>
                 <Formik
