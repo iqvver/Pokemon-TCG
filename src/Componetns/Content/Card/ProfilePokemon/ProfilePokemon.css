@@ -11,8 +11,6 @@
     margin: 10px auto;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
-    overflow: hidden;
     width: auto;
     height: auto;
 }
@@ -48,17 +46,20 @@
     height: 150px;  
 }
 .infoBlock {
+    display: block;
     float:left;
     width: 40%;
     max-width: 40%; 
     min-width: 200px;
 }
+@media(max-width: 500px){
+    .infoBlock {
+    display: grid;
+    width: 100%;
+    }
+ } 
 .imgBlock {
-    float: right; 
     margin-left: 10px;
-    max-width: 60%;
-    min-width: 150px;
-    
 }
 .imgBlock img {
     max-width: 100%;

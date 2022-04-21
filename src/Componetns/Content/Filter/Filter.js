@@ -1,8 +1,10 @@
 import * as React from 'react';
 import './Filter.css';
+import Pokemon from '../Card/CardPokemon/Pokemon';
 import { Field, reduxForm } from 'redux-form';
 import { Input } from '../../../Common/FormsControls/FormsControls';
-import { Button, MenuItem } from '@mui/material';
+import { Button, MenuItem, Grid } from '@mui/material';
+import PaginatorUi from '../../../Common/Paginator/PaginatorUi';
 
 // форма для фильтрации и поиска карточки покемона
 const searchPokemon = ({ handleSubmit, typePokemon, subtypePokemon }) => {
@@ -60,12 +62,18 @@ const SearchPokemonForm = reduxForm({
 })(searchPokemon);
 
 // страница с формой фильтрации и вывода нужных карточек покемонов
-const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon }) => {
+const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon,
+    pokemons, totalCount, pagesCount, pageSize, currentPage, isFetching,
+    onPageChanged }) => {
     const typePokemonsArr = typePokemon.filter(typePokemon =>
         typePokemon !== searchPokemon.pokemonType);
     const subtypePokemonsArr = subtypePokemon.filter(subtypePokemon =>
         subtypePokemon !== searchPokemon.pokemonSubtype);
 
+    const filterPokemonArr = pokemons.filter(filterPokemon =>
+        filterPokemon.name == searchPokemon.pokemonName);
+
+    debugger;
     let searchNewPokemon = (value) => {
         newSearchPokemon(value.searchPokemonName, value.searchPokemonType, value.searchPokemonSubtype);
         value.searchPokemonName = '';
@@ -81,6 +89,7 @@ const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon }
                 <span className='searchSubtype'>SUBTYPE: {searchPokemon.pokemonSubtype}</span>
             </div>
             <div className='filterCard'>
+                <hr size='1' color="" />
                 <div className='filterBlock'>
                     <SearchPokemonForm onSubmit={searchNewPokemon}
                         typePokemon={typePokemon}
@@ -88,8 +97,26 @@ const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon }
                     />
                 </div>
                 <div className='cardBlock'>
-                    {typePokemonsArr} <br /> <br />
-                    {subtypePokemonsArr} <br /> <br />
+                    <Grid container className='paginatorFilterContainer'>
+                        <PaginatorUi
+                            currentPage={currentPage}
+                            onPageChanged={onPageChanged}
+                            totalCount={totalCount}
+                            pagesCount={pagesCount}
+                            pageSize={pageSize} />
+                    </Grid>
+
+                    <Grid container className='pokemonFilterContainer'>
+                        {
+                            filterPokemonArr.length == 0 ?
+                                pokemons.map(pokemonCard =>
+                                    <Pokemon pokemon={pokemonCard} />)
+                                :
+                                filterPokemonArr.map(pokemonCard =>
+                                    <Pokemon pokemon={pokemonCard} />)
+                        }
+
+                    </Grid>
                 </div>
             </div>
         </>

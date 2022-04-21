@@ -1,7 +1,8 @@
 .filterContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    margin-left: 5px;
 }
 .filterForm {
     margin-top: 20px; 
@@ -9,6 +10,7 @@
 .searchParameters{
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
     flex: 1;
 }
 .searchName {
@@ -21,19 +23,56 @@
     flex: 1;
 }
 .filterCard {
+    display: block;
     justify-content: center;
     align-items: center;
     width:100%; 
     margin: 0 auto; 
 }
+@media(max-width: 700px){
+    .filterCard {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    max-width: 400px; 
+    margin: 0 auto; 
+    }
+ } 
 .filterBlock {
-    background-color: violet;
     float:left;
     margin-left: 0px;
-    width: 250px;
-    min-width: 40px;
+    min-width: 250px;
 }
+@media(max-width: 700px){
+    .filterBlock {
+        width: 100%;
+        display: block;
+        justify-content: center;
+        align-items: center;  
+    }
+ } 
 .cardBlock {
-    background-color: yellowgreen;
-	width: 100%;
+	display: flex;
+    margin-left: 10px;
+    flex-direction:column;
+    justify-content: space-between;
 }
+@media(max-width: 650px){
+    .cardBlock {
+        width: 100%;
+        justify-content: center;
+        align-items: center;  
+    }
+ } 
+ .paginatorFilterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    margin-top: 10px;
+ }
+ .pokemonFilterContainer {
+     margin-top: 20px;
+     justify-content: center;
+     align-items: center;  
+ }

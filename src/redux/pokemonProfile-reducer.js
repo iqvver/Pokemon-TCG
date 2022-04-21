@@ -24,8 +24,8 @@ export const setProfilePokemon = (pokemonsProfile) => ({ type: SET_POKEMONS_PROF
 // получение, обработка и отправка профиля покемона
 // ассинхронный экшен
 export const getProfilePokemon = (pokemonId) => async (dispatch) => {
-    let response = await profilePokemonAPI.getProfile(pokemonId);
-    dispatch(setProfilePokemon(response.data));
+    let profile = await profilePokemonAPI.getProfile(pokemonId);
+    dispatch(setProfilePokemon(profile.data));
 }
 
 export default profileReducer;
