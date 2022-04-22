@@ -63,17 +63,18 @@ const SearchPokemonForm = reduxForm({
 
 // страница с формой фильтрации и вывода нужных карточек покемонов
 const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon,
-    pokemons, totalCount, pagesCount, pageSize, currentPage, isFetching,
-    onPageChanged }) => {
-    const typePokemonsArr = typePokemon.filter(typePokemon =>
-        typePokemon !== searchPokemon.pokemonType);
-    const subtypePokemonsArr = subtypePokemon.filter(subtypePokemon =>
-        subtypePokemon !== searchPokemon.pokemonSubtype);
+    pokemons, totalCount, pagesCount, pageSize, currentPage, onPageChanged }) => {
 
-    const filterPokemonArr = pokemons.filter(filterPokemon =>
+    const filterNamePokemonArr = pokemons.filter(filterPokemon =>
         filterPokemon.name == searchPokemon.pokemonName);
+    const filterTypePokemonArr = pokemons.filter(filterPokemon =>
+        filterPokemon.types == searchPokemon.pokemonType);
+    const filterSubtypePokemonArr = pokemons.filter(filterPokemon =>
+        filterPokemon.subtypes == searchPokemon.pokemonSubtype);
+    const filterTypePlusSubtypePokemonArr = pokemons.filter(filterPokemon =>
+        filterPokemon.types == searchPokemon.pokemonType &&
+        filterPokemon.subtypes == searchPokemon.pokemonSubtype);
 
-    debugger;
     let searchNewPokemon = (value) => {
         newSearchPokemon(value.searchPokemonName, value.searchPokemonType, value.searchPokemonSubtype);
         value.searchPokemonName = '';
@@ -105,17 +106,56 @@ const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon,
                             pagesCount={pagesCount}
                             pageSize={pageSize} />
                     </Grid>
+                    <br />
+                    <span>Всего найдено: {
+                        (filterNamePokemonArr.length > 0) &&
+                            (filterTypePokemonArr.length == 0) &&
+                            (filterSubtypePokemonArr.length == 0)
+                            ? filterNamePokemonArr.length
+                            :
+                            (filterNamePokemonArr.length == 0) &&
+                                (filterTypePokemonArr.length > 0) &&
+                                (filterSubtypePokemonArr.length == 0)
+                                ? filterTypePokemonArr.length
 
+                                : (filterNamePokemonArr.length == 0) &&
+                                    (filterTypePokemonArr.length == 0) &&
+                                    (filterSubtypePokemonArr.length > 0)
+                                    ? filterSubtypePokemonArr.length
+
+                                    : (filterTypePlusSubtypePokemonArr.length > 0) 
+                                        ? filterTypePlusSubtypePokemonArr.length
+                                        : pokemons.length
+                    } покемонов</span>
                     <Grid container className='pokemonFilterContainer'>
                         {
-                            filterPokemonArr.length == 0 ?
-                                pokemons.map(pokemonCard =>
+                            (filterNamePokemonArr.length > 0) &&
+                                (filterTypePokemonArr.length == 0) &&
+                                (filterSubtypePokemonArr.length == 0)
+                                ? filterNamePokemonArr.map(pokemonCard =>
                                     <Pokemon pokemon={pokemonCard} />)
                                 :
-                                filterPokemonArr.map(pokemonCard =>
-                                    <Pokemon pokemon={pokemonCard} />)
-                        }
+                                (filterNamePokemonArr.length == 0) &&
+                                    (filterTypePokemonArr.length > 0) &&
+                                    (filterSubtypePokemonArr.length == 0)
+                                    ? filterTypePokemonArr.map(pokemonCard =>
+                                        <Pokemon pokemon={pokemonCard} />)
 
+                                    : (filterNamePokemonArr.length == 0) &&
+                                        (filterTypePokemonArr.length == 0) &&
+                                        (filterSubtypePokemonArr.length > 0)
+                                        ? filterSubtypePokemonArr.map(pokemonCard =>
+                                            <Pokemon pokemon={pokemonCard} />)
+
+                                        : (filterNamePokemonArr.length == 0) &&
+                                            (filterTypePokemonArr.length > 0) &&
+                                            (filterSubtypePokemonArr.length > 0)
+                                            ? filterTypePlusSubtypePokemonArr.map(pokemonCard =>
+                                                <Pokemon pokemon={pokemonCard} />)
+                                            :
+                                            pokemons.map(pokemonCard =>
+                                                <Pokemon pokemon={pokemonCard} />)
+                        }
                     </Grid>
                 </div>
             </div>

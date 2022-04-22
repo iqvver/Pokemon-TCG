@@ -11,7 +11,7 @@ let Pokemon = ({ pokemon }) => {
             <div className='cardContent'>
                 <span>Имя: {pokemon.name}</span> <br />
                 <span>Тип: {pokemon.types}</span> <br />
-                <span>Тренер: {pokemon.artist}</span>
+                <span>Под тип: {pokemon.subtypes}</span>
             </div>
         </div>
     )
