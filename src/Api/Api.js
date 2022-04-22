@@ -11,13 +11,23 @@ const instance = axios.create({
 
 // получение массива со всеми карточками покемонов
 export const pokemonsAPI = {
-    getPokemons(currentPage = 1, pageSize = 250) {
+    getPokemons(currentPage = 1, pageSize = 250 ) {
         return instance.get(`cards?page=${currentPage}&count=${pageSize}`)
             .then(card => {
                 return card.data;
             });
     }
 }
+
+export const filterPokemonsNameAPI = {
+    getFilterPokemonsName( currentPage = 1, pageSize = 250, pokemonName ) {
+        return instance.get(`cards?q=name:${pokemonName}`)
+            .then(card => {
+                return card.data;
+            });
+    }
+}
+
 // переход в профиль выбранной карточки покемона
 export const profilePokemonAPI = {
     getProfile(pokemonId) {

@@ -63,7 +63,7 @@ const SearchPokemonForm = reduxForm({
 
 // страница с формой фильтрации и вывода нужных карточек покемонов
 const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon,
-    pokemons, totalCount, pagesCount, pageSize, currentPage, onPageChanged }) => {
+    pokemons, pageSize, currentPage, onPageChanged, filteredName }) => {
 
     const filterNamePokemonArr = pokemons.filter(filterPokemon =>
         filterPokemon.name == searchPokemon.pokemonName);
@@ -102,33 +102,18 @@ const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon,
                         <PaginatorUi
                             currentPage={currentPage}
                             onPageChanged={onPageChanged}
-                            totalCount={totalCount}
-                            pagesCount={pagesCount}
+                            totalCount={filteredName.length}
                             pageSize={pageSize} />
                     </Grid>
                     <br />
                     <span>Всего найдено: {
-                        (filterNamePokemonArr.length > 0) &&
-                            (filterTypePokemonArr.length == 0) &&
-                            (filterSubtypePokemonArr.length == 0)
-                            ? filterNamePokemonArr.length
-                            :
-                            (filterNamePokemonArr.length == 0) &&
-                                (filterTypePokemonArr.length > 0) &&
-                                (filterSubtypePokemonArr.length == 0)
-                                ? filterTypePokemonArr.length
-
-                                : (filterNamePokemonArr.length == 0) &&
-                                    (filterTypePokemonArr.length == 0) &&
-                                    (filterSubtypePokemonArr.length > 0)
-                                    ? filterSubtypePokemonArr.length
-
-                                    : (filterTypePlusSubtypePokemonArr.length > 0) 
-                                        ? filterTypePlusSubtypePokemonArr.length
-                                        : pokemons.length
+                        filteredName.length
                     } покемонов</span>
                     <Grid container className='pokemonFilterContainer'>
-                        {
+
+                        {filteredName.map(pokemonCard =>
+                            <Pokemon pokemon={pokemonCard} />)}
+                        {/*
                             (filterNamePokemonArr.length > 0) &&
                                 (filterTypePokemonArr.length == 0) &&
                                 (filterSubtypePokemonArr.length == 0)
@@ -155,7 +140,7 @@ const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon,
                                             :
                                             pokemons.map(pokemonCard =>
                                                 <Pokemon pokemon={pokemonCard} />)
-                        }
+                                            */}
                     </Grid>
                 </div>
             </div>

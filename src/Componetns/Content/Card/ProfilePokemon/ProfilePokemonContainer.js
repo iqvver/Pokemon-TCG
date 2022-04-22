@@ -24,7 +24,6 @@ class ProfilePokemonContainer extends React.Component {
         )
     }
 }
-
 // получение данных из state
 let mapStateToProps = (state) => ({
     pokemonsProfile: state.pokemonsProfilePage.pokemonsProfile

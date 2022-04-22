@@ -1,8 +1,14 @@
-import { typePokemonAPI, subtypePokemonAPI } from "../Api/Api";
+import { typePokemonAPI, subtypePokemonAPI, filterPokemonsNameAPI } from "../Api/Api";
 
 const SET_TYPE_POKEMON = 'SET_TYPE_POKEMON'; // перенная для получения типа покемона
 const SET_SUBTYPE_POKEMON = 'SET_SUBTYPE_POKEMON'; // перенная для получения подтипа покемона
 const SEARCH_POKEMON = 'SEARCH_POKEMON'; // перенная для фильтрации покемона
+
+const SET_FILTERED_NAME = 'SET_FILTERED_NAME';
+
+const SET_CURRENT_FILTER_PAGE = 'SET_CURRENT_FILTER_PAGE'; // перенная для получения одной страници 
+const SET_TOTAL_FILTER_POKEMONS_COUNT = 'SET_TOTAL_FILTER_POKEMONS_COUNT'; // перенная для получения всех карточек
+const IS_FILTER_FETCHING = 'IS_FILTER_FETCHING';
 
 // иноциализация переменных
 let initialState = {
@@ -13,7 +19,13 @@ let initialState = {
         pokemonName: '',
         pokemonType: '',
         pokemonSubtype: ''
-    }
+    },
+    filteredName: [],
+
+    pageFilterSize: 250, // размер страници
+    totalFilterCount: 0, // общее число карточек покемонов по умолчению 0
+    currentFilterPage: 1, // выбранная сраница карточек покемонов по умолчанию 1
+    isFilterFetching: false, // загрузка
 };
 
 // редьюсер фильтрации карточек покемонов
@@ -44,6 +56,27 @@ const filterReducer = (state = initialState, action) => {
                 }
             };
         }
+
+        case SET_FILTERED_NAME: {
+            return { ...state, filteredName: action.filteredName }
+        }
+
+
+        case SET_CURRENT_FILTER_PAGE: {
+            // получение определённой страници
+            return { ...state, currentFilterPage: action.currentFilterPage }
+        }
+
+        case SET_TOTAL_FILTER_POKEMONS_COUNT: {
+            // получение общего числа карточек
+            return { ...state, totalFilterCount: action.count }
+        }
+
+        case IS_FILTER_FETCHING: {
+            // загрузка on/off
+            return { ...state, isFilterFetching: action.isFilterFetching }
+        }
+
         default:
             return state;
     }
@@ -57,13 +90,33 @@ export const setSubtypePokemonAC = (subtypePokemon) => ({ type: SET_SUBTYPE_POKE
 export const searchPokemonAC = (searchPokemonName, searchPokemonType, searchPokemonSubtype) =>
     ({ type: SEARCH_POKEMON, searchPokemonName, searchPokemonType, searchPokemonSubtype });
 
+export const setCurrentFilterPageAC = (currentFilterPage) => ({ type: SET_CURRENT_FILTER_PAGE, currentFilterPage });
+// экшен для получения общего числа карточек
+export const setPokemonsTotalFilterCountAC = (totalFilterCount) => ({ type: SET_TOTAL_FILTER_POKEMONS_COUNT, count: totalFilterCount })
+// экшен загрузки
+export const setIsFilterFetchingAC = (isFilterFetching) => ({ type: IS_FILTER_FETCHING, isFilterFetching })
+
+
+export const setFilteredNameAC = (filteredName) => ({ type: SET_FILTERED_NAME, filteredName });
+
+export const getFilterPokemonsName = (currentFilterPage, pageFilterSize, filteredName) => {
+    return async (dispatch) => {
+        dispatch(setIsFilterFetchingAC(true));
+        let card = await filterPokemonsNameAPI.getFilterPokemonsName(currentFilterPage, pageFilterSize, filteredName);
+        dispatch(setIsFilterFetchingAC(false));
+        dispatch(setFilteredNameAC(card.data));
+        dispatch(setPokemonsTotalFilterCountAC(card.totalFilterCount));
+    }
+}
+
+
 // получение, обработка и отправка типов покемонов
 // ассинхронный экшен
 export const getTypePokemon = (typePokemon) => {
     return async (dispatch) => {
         let type = await typePokemonAPI.getTypePokemon(typePokemon);
         if (typePokemon.length === 0) {
-        dispatch(setTypePokemonAC(type.data));
+            dispatch(setTypePokemonAC(type.data));
         }
     }
 }
@@ -72,16 +125,15 @@ export const getTypePokemon = (typePokemon) => {
 export const getSubtypePokemon = (subtypePokemon) => {
     return async (dispatch) => {
         let subtype = await subtypePokemonAPI.getSubtypePokemon(subtypePokemon);
-        debugger;
         if (subtypePokemon.length === 0) {
-        dispatch(setSubtypePokemonAC(subtype.data));
+            dispatch(setSubtypePokemonAC(subtype.data));
         }
     }
 }
 
 // получение, обработка поиска
-export const newSearchPokemon = (searchPokemonName, searchPokemonType, searchPokemonSubtype) =>(dispatch) => {
-        dispatch(searchPokemonAC(searchPokemonName, searchPokemonType, searchPokemonSubtype));
-    }
+export const newSearchPokemon = (searchPokemonName, searchPokemonType, searchPokemonSubtype) => (dispatch) => {
+    dispatch(searchPokemonAC(searchPokemonName, searchPokemonType, searchPokemonSubtype));
+}
 
 export default filterReducer;
