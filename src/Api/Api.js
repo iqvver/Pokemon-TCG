@@ -11,7 +11,7 @@ const instance = axios.create({
 
 // получение массива со всеми карточками покемонов
 export const pokemonsAPI = {
-    getPokemons(currentPage = 1, pageSize = 250 ) {
+    getPokemons(currentPage, pageSize) {
         return instance.get(`cards?page=${currentPage}&count=${pageSize}`)
             .then(card => {
                 return card.data;
@@ -19,14 +19,43 @@ export const pokemonsAPI = {
     }
 }
 
-export const filterPokemonsNameAPI = {
-    getFilterPokemonsName( currentPage = 1, pageSize = 250, pokemonName ) {
-        return instance.get(`cards?q=name:${pokemonName}`)
-            .then(card => {
-                return card.data;
-            });
+// получение офильтрованного массива с карточками покемонов
+export const filterPokemonsAPI = {
+    getFilterPokemons(currentFilterPage, pageFilterSize, searchPokemon) {
+        if (searchPokemon.pokemonName && !searchPokemon.pokemonType && !searchPokemon.pokemonSubtype) {
+            // если есть только имя  
+            return instance.get(`cards?q=name:${searchPokemon.pokemonName}`)
+                .then(card => {
+                    return card.data;
+                });
+        } else if (searchPokemon.pokemonType && !searchPokemon.pokemonSubtype) {
+            // если есть только тип
+            return instance.get(`cards?q=types:${searchPokemon.pokemonType}`)
+                .then(card => {
+                    return card.data;
+                });
+        } else if (searchPokemon.pokemonSubtype && !searchPokemon.pokemonType) {
+            // если есть только подтип
+            return instance.get(`cards?q=subtypes:${searchPokemon.pokemonSubtype}`)
+                .then(card => {
+                    return card.data;
+                });
+        } else if (searchPokemon.pokemonType && searchPokemon.pokemonSubtype) {
+            // если есть тип и подтип
+            return instance.get(`cards?q=types:${searchPokemon.pokemonType}%20subtypes:${searchPokemon.pokemonSubtype}`)
+                .then(card => {
+                    return card.data;
+                });
+        } else if (!searchPokemon.pokemonType && !searchPokemon.pokemonSubtype && !searchPokemon.pokemonName) {
+            // если параметры поска пусты
+            return instance.get(`cards?q=name:${'Pikachu'}`)
+                .then(card => {
+                    return card.data;
+                });
+        }
     }
 }
+
 
 // переход в профиль выбранной карточки покемона
 export const profilePokemonAPI = {

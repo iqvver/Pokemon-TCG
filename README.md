@@ -1,4 +1,5 @@
 # Ultra Super Pokemon 5G Pro
+    https://docs.pokemontcg.io
 
 # Available Scripts
 To start the project: Copy the archive to your computer, open it in VS Code, and run the terminal. Then write the commands:

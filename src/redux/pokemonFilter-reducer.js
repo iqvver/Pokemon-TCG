@@ -1,14 +1,12 @@
-import { typePokemonAPI, subtypePokemonAPI, filterPokemonsNameAPI } from "../Api/Api";
+import { typePokemonAPI, subtypePokemonAPI, filterPokemonsAPI } from "../Api/Api";
 
 const SET_TYPE_POKEMON = 'SET_TYPE_POKEMON'; // перенная для получения типа покемона
 const SET_SUBTYPE_POKEMON = 'SET_SUBTYPE_POKEMON'; // перенная для получения подтипа покемона
 const SEARCH_POKEMON = 'SEARCH_POKEMON'; // перенная для фильтрации покемона
-
-const SET_FILTERED_NAME = 'SET_FILTERED_NAME';
-
+const SET_FILTERED = 'SET_FILTERED'; // переменная отфильтрованных карточек покемонов
 const SET_CURRENT_FILTER_PAGE = 'SET_CURRENT_FILTER_PAGE'; // перенная для получения одной страници 
 const SET_TOTAL_FILTER_POKEMONS_COUNT = 'SET_TOTAL_FILTER_POKEMONS_COUNT'; // перенная для получения всех карточек
-const IS_FILTER_FETCHING = 'IS_FILTER_FETCHING';
+const IS_FILTER_FETCHING = 'IS_FILTER_FETCHING'; // переменная закгузки отфильтрованного массива
 
 // иноциализация переменных
 let initialState = {
@@ -20,11 +18,10 @@ let initialState = {
         pokemonType: '',
         pokemonSubtype: ''
     },
-    filteredName: [],
-
+    filteredPokemon: [], // массив отфильтрованных карточек покемонов
     pageFilterSize: 250, // размер страници
-    totalFilterCount: 0, // общее число карточек покемонов по умолчению 0
-    currentFilterPage: 1, // выбранная сраница карточек покемонов по умолчанию 1
+    totalCount: 0, // общее число карточек покемонов по умолчению 0
+    currentPage: 1, // выбранная сраница карточек покемонов по умолчанию 1
     isFilterFetching: false, // загрузка
 };
 
@@ -57,19 +54,19 @@ const filterReducer = (state = initialState, action) => {
             };
         }
 
-        case SET_FILTERED_NAME: {
-            return { ...state, filteredName: action.filteredName }
+        case SET_FILTERED: {
+            // получение отфильтрованного массива
+            return { ...state, filteredPokemon: action.filteredPokemon }
         }
-
 
         case SET_CURRENT_FILTER_PAGE: {
             // получение определённой страници
-            return { ...state, currentFilterPage: action.currentFilterPage }
+            return { ...state, currentPage: action.currentPage }
         }
 
         case SET_TOTAL_FILTER_POKEMONS_COUNT: {
             // получение общего числа карточек
-            return { ...state, totalFilterCount: action.count }
+            return { ...state, totalCount: action.count }
         }
 
         case IS_FILTER_FETCHING: {
@@ -90,26 +87,23 @@ export const setSubtypePokemonAC = (subtypePokemon) => ({ type: SET_SUBTYPE_POKE
 export const searchPokemonAC = (searchPokemonName, searchPokemonType, searchPokemonSubtype) =>
     ({ type: SEARCH_POKEMON, searchPokemonName, searchPokemonType, searchPokemonSubtype });
 
-export const setCurrentFilterPageAC = (currentFilterPage) => ({ type: SET_CURRENT_FILTER_PAGE, currentFilterPage });
+export const setCurrentFilterPageAC = (currentPage) => ({ type: SET_CURRENT_FILTER_PAGE, currentPage });
 // экшен для получения общего числа карточек
-export const setPokemonsTotalFilterCountAC = (totalFilterCount) => ({ type: SET_TOTAL_FILTER_POKEMONS_COUNT, count: totalFilterCount })
+export const setPokemonsTotalFilterCountAC = (totalCount) => ({ type: SET_TOTAL_FILTER_POKEMONS_COUNT, count: totalCount })
 // экшен загрузки
 export const setIsFilterFetchingAC = (isFilterFetching) => ({ type: IS_FILTER_FETCHING, isFilterFetching })
-
-
-export const setFilteredNameAC = (filteredName) => ({ type: SET_FILTERED_NAME, filteredName });
-
-export const getFilterPokemonsName = (currentFilterPage, pageFilterSize, filteredName) => {
+// получение, обработка и отправка отфильтрованного массива карточек
+// ассинхронный экшен
+export const setFilteredPokemonAC = (filteredPokemon) => ({ type: SET_FILTERED, filteredPokemon });
+export const getFilterPokemons = (currentPage, pageFilterSize, filteredPokemon) => {
     return async (dispatch) => {
         dispatch(setIsFilterFetchingAC(true));
-        let card = await filterPokemonsNameAPI.getFilterPokemonsName(currentFilterPage, pageFilterSize, filteredName);
+        let card = await filterPokemonsAPI.getFilterPokemons(currentPage, pageFilterSize, filteredPokemon);
         dispatch(setIsFilterFetchingAC(false));
-        dispatch(setFilteredNameAC(card.data));
-        dispatch(setPokemonsTotalFilterCountAC(card.totalFilterCount));
+        dispatch(setFilteredPokemonAC(card.data));
+        dispatch(setPokemonsTotalFilterCountAC(card.totalCount));
     }
 }
-
-
 // получение, обработка и отправка типов покемонов
 // ассинхронный экшен
 export const getTypePokemon = (typePokemon) => {

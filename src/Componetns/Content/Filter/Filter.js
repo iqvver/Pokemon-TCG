@@ -17,7 +17,7 @@ const searchPokemon = ({ handleSubmit, typePokemon, subtypePokemon }) => {
                 type={'text'}
                 variant={'standard'}
                 label={'Search for pokemon by name'}
-                placeholder={'Search for pokemon by name'}
+                placeholder={'Pikachu'}
                 helperText="Please enter a name" />
             <Field
                 name={"searchPokemonType"}
@@ -63,17 +63,7 @@ const SearchPokemonForm = reduxForm({
 
 // страница с формой фильтрации и вывода нужных карточек покемонов
 const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon,
-    pokemons, pageSize, currentPage, onPageChanged, filteredName }) => {
-
-    const filterNamePokemonArr = pokemons.filter(filterPokemon =>
-        filterPokemon.name == searchPokemon.pokemonName);
-    const filterTypePokemonArr = pokemons.filter(filterPokemon =>
-        filterPokemon.types == searchPokemon.pokemonType);
-    const filterSubtypePokemonArr = pokemons.filter(filterPokemon =>
-        filterPokemon.subtypes == searchPokemon.pokemonSubtype);
-    const filterTypePlusSubtypePokemonArr = pokemons.filter(filterPokemon =>
-        filterPokemon.types == searchPokemon.pokemonType &&
-        filterPokemon.subtypes == searchPokemon.pokemonSubtype);
+    onPageChanged, filteredPokemon, pageFilterSize, currentPage, totalCount }) => {
 
     let searchNewPokemon = (value) => {
         newSearchPokemon(value.searchPokemonName, value.searchPokemonType, value.searchPokemonSubtype);
@@ -98,49 +88,22 @@ const Filter = ({ typePokemon, searchPokemon, subtypePokemon, newSearchPokemon,
                     />
                 </div>
                 <div className='cardBlock'>
-                    <Grid container className='paginatorFilterContainer'>
-                        <PaginatorUi
-                            currentPage={currentPage}
-                            onPageChanged={onPageChanged}
-                            totalCount={filteredName.length}
-                            pageSize={pageSize} />
-                    </Grid>
+                    {
+                        /*<Grid container className='paginatorFilterContainer'>
+                            <PaginatorUi
+                                currentPage={currentPage}
+                                onPageChanged={onPageChanged}
+                                totalCount={totalCount}
+                                pageSize={pageFilterSize} />
+                         </Grid>*/
+                    }
                     <br />
                     <span>Всего найдено: {
-                        filteredName.length
+                        totalCount
                     } покемонов</span>
                     <Grid container className='pokemonFilterContainer'>
-
-                        {filteredName.map(pokemonCard =>
+                        {filteredPokemon.map(pokemonCard =>
                             <Pokemon pokemon={pokemonCard} />)}
-                        {/*
-                            (filterNamePokemonArr.length > 0) &&
-                                (filterTypePokemonArr.length == 0) &&
-                                (filterSubtypePokemonArr.length == 0)
-                                ? filterNamePokemonArr.map(pokemonCard =>
-                                    <Pokemon pokemon={pokemonCard} />)
-                                :
-                                (filterNamePokemonArr.length == 0) &&
-                                    (filterTypePokemonArr.length > 0) &&
-                                    (filterSubtypePokemonArr.length == 0)
-                                    ? filterTypePokemonArr.map(pokemonCard =>
-                                        <Pokemon pokemon={pokemonCard} />)
-
-                                    : (filterNamePokemonArr.length == 0) &&
-                                        (filterTypePokemonArr.length == 0) &&
-                                        (filterSubtypePokemonArr.length > 0)
-                                        ? filterSubtypePokemonArr.map(pokemonCard =>
-                                            <Pokemon pokemon={pokemonCard} />)
-
-                                        : (filterNamePokemonArr.length == 0) &&
-                                            (filterTypePokemonArr.length > 0) &&
-                                            (filterSubtypePokemonArr.length > 0)
-                                            ? filterTypePlusSubtypePokemonArr.map(pokemonCard =>
-                                                <Pokemon pokemon={pokemonCard} />)
-                                            :
-                                            pokemons.map(pokemonCard =>
-                                                <Pokemon pokemon={pokemonCard} />)
-                                            */}
                     </Grid>
                 </div>
             </div>
