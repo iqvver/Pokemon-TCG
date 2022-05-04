@@ -68,6 +68,7 @@ const MyUser = ({ handleSubmit }) => {
                         type="text"
                         placeholder='Repeat the password' />
                     <br />
+                    <br />
                     <div>
                         <Button type="submit">Registration</Button>
                     </div>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './HeaderLogin.css';
 import { NavLink } from 'react-router-dom';
 import { FormControlLabel, Switch, } from '@material-ui/core';
 
@@ -11,9 +12,9 @@ let HeaderLogin = ({ setIsAuth, isUser }) => {
     return (
         <div>
             {localStorage.getItem('isAuth') == 'true' ?
-                setIsAuth(true) || <div>
+                setIsAuth(true) || <div className='loginOnLine'>
                     {isUser}
-                </div> : setIsAuth(false) || <div>offLne</div>}
+                </div> : setIsAuth(false) || <div className='loginOffLine'>OffLine</div>}
 
             {localStorage.getItem('isAuth') == 'true'
                 ? <FormControlLabel  //переключение logIn, logAut

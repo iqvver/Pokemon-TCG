@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./FormsControls.module.css";
 import { Box, TextField } from '@material-ui/core';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
-import { autofill, Field } from "redux-form";
+import { Field } from "redux-form";
 
 // работа с базовыми формами ввода
 const FormControl = ({ input, meta, child, ...props }) => {

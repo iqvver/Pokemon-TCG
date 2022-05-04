@@ -88,6 +88,7 @@ const Login = ({ setIsAuth, isReg, isUser }) => {
                                 name="password" />
                             <ErrorMessage name="password" component="div" />
                             <br />
+                            <br />
                             <Button onClick={isReg.find(item =>
                                 item.login == values.email && item.password == values.password)
                                 ? handleOpen : loginError}>LogIn</Button>

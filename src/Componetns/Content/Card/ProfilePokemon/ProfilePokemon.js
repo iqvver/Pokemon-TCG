@@ -3,6 +3,7 @@ import './ProfilePokemon.css';
 import { Divider } from '@material-ui/core';
 import LinearProgress from '@mui/material/LinearProgress';
 import Button from '@mui/material/Button';
+import pokeNo from '../../../../assets/images/pokeNo.jpg'
 
 // страница с информацией о выбранном покемоне
 const ProfilePokemon = ({ pokemonsProfile, ...props }) => {
@@ -56,7 +57,7 @@ const ProfilePokemon = ({ pokemonsProfile, ...props }) => {
                 // картинка
             }
             <div className='imgBlock'>
-                <img src={pokemonsProfile.data.images.large} />
+                <img src={pokemonsProfile.data.images.large} alt={pokeNo} />
             </div>
         </div>
     )
