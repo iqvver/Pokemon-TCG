@@ -2,23 +2,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
-    height: auto;
+    position: fixed;
 }
 .pokemonCardContainer {
     background-color: rgb(255, 255, 255);
-    display: flex;
     margin: 10px auto;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: auto;
+    width: 70%;
 }
 .buttonBlock {
+    position: relative;
+    top: auto;
     float: left;
-    padding: 0px; 
-    margin-top: -700px;
 }
+.infoBlock {
+    float: right;
+    width: 40%;
+}
+@media(max-width: 900px){
+    .infoBlock {
+    float: none;
+    width: 100%;
+    }
+ } 
 .general {
     border-radius: 5px;
     box-shadow: 0 0 5px  black;
@@ -45,24 +50,18 @@
     border-radius: 5px;
     height: 150px;  
 }
-.infoBlock {
-    display: block;
-    float:left;
-    width: 40%;
-    max-width: 40%; 
-    min-width: 200px;
+.imgBlock {
+    float: left;
+    width: 50%;
 }
-@media(max-width: 500px){
-    .infoBlock {
-    display: grid;
+@media(max-width: 900px){
+    .imgBlock {
+    float: none;
     width: 100%;
     }
  } 
-.imgBlock {
-    margin-left: 10px;
-}
 .imgBlock img {
     max-width: 100%;
-    height: auto;
     border-radius: 10px;
+    margin-top: 10px;
 }
