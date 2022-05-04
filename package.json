@@ -2,7 +2,7 @@
   "name": "my-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://iqvver.github.io/KODE_test",
+  "homepage": "https://iqvver.github.io/Pokemon-TCG/",
   "dependencies": {
     "@emotion/react": "^11.7.0",
     "@emotion/styled": "^11.6.0",
