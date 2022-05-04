@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Pokemon-TCG/static/css/main.bdbd5efd.chunk.css",
+    "main.css": "/Pokemon-TCG/static/css/main.34510df5.chunk.css",
     "main.js": "/Pokemon-TCG/static/js/main.caed9de0.chunk.js",
     "main.js.map": "/Pokemon-TCG/static/js/main.caed9de0.chunk.js.map",
     "runtime-main.js": "/Pokemon-TCG/static/js/runtime-main.e9e73732.js",
@@ -12,7 +12,7 @@
     "static/js/3.3299d22c.chunk.js.map": "/Pokemon-TCG/static/js/3.3299d22c.chunk.js.map",
     "index.html": "/Pokemon-TCG/index.html",
     "static/css/2.04e3e6b4.chunk.css.map": "/Pokemon-TCG/static/css/2.04e3e6b4.chunk.css.map",
-    "static/css/main.bdbd5efd.chunk.css.map": "/Pokemon-TCG/static/css/main.bdbd5efd.chunk.css.map",
+    "static/css/main.34510df5.chunk.css.map": "/Pokemon-TCG/static/css/main.34510df5.chunk.css.map",
     "static/js/2.95a9a781.chunk.js.LICENSE.txt": "/Pokemon-TCG/static/js/2.95a9a781.chunk.js.LICENSE.txt",
     "static/media/Header.css": "/Pokemon-TCG/static/media/WhiteChick.f0023aae.ttf",
     "static/media/pokeNo.11f5a0cb.jpg": "/Pokemon-TCG/static/media/pokeNo.11f5a0cb.jpg",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.e9e73732.js",
     "static/css/2.04e3e6b4.chunk.css",
     "static/js/2.95a9a781.chunk.js",
-    "static/css/main.bdbd5efd.chunk.css",
+    "static/css/main.34510df5.chunk.css",
     "static/js/main.caed9de0.chunk.js"
   ]
 }
