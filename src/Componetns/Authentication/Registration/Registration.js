@@ -15,6 +15,7 @@ const Registration = ({ loginAndPassword, addUser }) => {
         </div>);
     // функция добавления нового пользователя
     let addNewUser = (value) => {
+        debugger;
         if (value.newUserPass == value.newUserPass2) {
             addUser(value.newUserName, value.newUserLogin, value.newUserPass);
             alert('Все ОК');

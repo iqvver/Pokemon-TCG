@@ -7,8 +7,8 @@ let initialState = {
     isAuth: '', // авторизация true/false
     // массив пользователей
     loginAndPassword: [
-        { id: 0, username: 'iqvver', login: 'iqvver@gmail.com', password: 1234 },
-        { id: 1, username: 'smart', login: 'smart@gamil.com', password: 1488 },
+        { id: 0, username: 'qqqq', login: 'qqq@gmail.com', password: 1111 },
+        { id: 1, username: 'qwqw', login: 'qw@gamil.com', password: 1234 },
     ],
     // пользователь
     isUser: 'onLine',

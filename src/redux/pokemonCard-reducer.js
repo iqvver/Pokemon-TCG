@@ -65,4 +65,3 @@ export const getPokemons = (currentPage, pageSize, pokemons) => {
 }
 
 export default pokemonCardReducer;
-

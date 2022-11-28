@@ -19,7 +19,7 @@ class PokemonContainer extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.getPokemons(pageNumber, this.props.pageSize);
     }
-    
+
     render() {
         // контейнер со страницей карточек покемонов и пагинотор
         // передача нужных переменных
